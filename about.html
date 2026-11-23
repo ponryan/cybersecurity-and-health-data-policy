@@ -7,26 +7,26 @@
 <meta name="description" content="Sources and methodology | Clinical Trial Cybersecurity Map">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Literata:opsz,wght@7..72,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* Layout concept: a policy reference. Wide ledger on the home page, one-column reading pages elsewhere. */
 :root{--us:#B7CBF7;--eu:#F9C2DA;--usl:#7F9DE0;--eul:#EE90BA;--ust:#2E4E9E;--eut:#B02F6B;
  --ink:#27265E;--inkl:#8C89C6;--inkt:#27265E;--sun:#FFE79A;--mute:#5D5C82;--rule:rgba(39,38,94,.18);--paper:#F6F7FB;--white:#fff;
- --f-d:'Archivo','Helvetica Neue',Arial,sans-serif;--f-b:'Literata',Georgia,'Times New Roman',serif;color-scheme:light}
+ --f-d:'Public Sans','Helvetica Neue',Arial,sans-serif;--f-b:'EB Garamond',Garamond,Georgia,'Times New Roman',serif;--f-h:var(--f-b);color-scheme:light}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-b);font-size:17px;line-height:1.6;
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-b);font-size:19px;line-height:1.5;
  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 a{color:inherit}
 .wrap{max-width:1240px;margin:0 auto}
-.d{font-family:var(--f-d);font-stretch:114%;font-weight:800;letter-spacing:-.012em;line-height:1.1;text-wrap:balance}
-.u{font-family:var(--f-d);font-stretch:100%}
+.d{font-family:var(--f-h);font-weight:700;line-height:1.15;text-wrap:balance}
+.u{font-family:var(--f-d)}
 h1,h2,h3{margin:0}
-h1{font-family:var(--f-d);font-stretch:112%;font-weight:800;letter-spacing:-.012em;line-height:1.08;font-size:clamp(30px,4.6vw,46px);text-wrap:balance}
-h2{font-family:var(--f-d);font-stretch:112%;font-weight:800;letter-spacing:-.01em;line-height:1.15;font-size:clamp(22px,2.6vw,28px);text-wrap:balance}
-h3{font-family:var(--f-d);font-stretch:108%;font-weight:700;line-height:1.2;font-size:18px}
+h1{font-family:var(--f-h);font-weight:700;line-height:1.1;font-size:clamp(34px,5vw,52px);text-wrap:balance}
+h2{font-family:var(--f-h);font-weight:700;line-height:1.18;font-size:clamp(25px,2.9vw,32px);text-wrap:balance}
+h3{font-family:var(--f-h);font-weight:600;line-height:1.22;font-size:20px}
 p{margin:0 0 1em}
-.lead{font-size:clamp(18px,2vw,21px);line-height:1.6}
+.lead{font-size:clamp(20px,2.1vw,23px);line-height:1.5}
 .mute{color:var(--mute)}
 .small{font-size:14px}
 .lk{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;font-weight:600}
@@ -43,19 +43,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .mark{position:relative;display:inline-block;width:40px;height:26px;flex:0 0 40px}
 .mark i{position:absolute;top:0;width:26px;height:26px;border-radius:50%;mix-blend-mode:multiply}
 .mark .a{left:0;background:var(--us)}.mark .b{left:14px;background:var(--eu)}
-.brand span.t{font-family:var(--f-d);font-stretch:114%;font-weight:800;font-size:19px;line-height:1.15}
+.brand span.t{font-family:var(--f-h);font-weight:700;font-size:23px;line-height:1.15}
 .nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:4px 22px;font-family:var(--f-d)}
 .nav a{text-decoration:none;font-size:15px;padding:6px 0;border-bottom:3px solid transparent}
 .nav a:hover{border-bottom-color:var(--rule)}
-.nav a.on{border-bottom-color:var(--ink);font-weight:700}
+.nav a.on{border-bottom-color:var(--ink);font-weight:600}
 .nav a.ref{margin-left:10px;padding-left:22px;border-left:1px solid var(--rule)}
 @media (max-width:860px){.nav a.ref{margin-left:0;padding-left:0;border-left:0}}
 
 /* tooltip pop */
 .tip{position:relative}
 .pop{display:none;position:absolute;z-index:40;width:310px;max-width:min(310px,84vw);background:#fff;color:var(--ink);padding:13px 16px;border-left:5px solid var(--c,var(--ink));
- box-shadow:6px 6px 0 rgba(39,38,94,.14);font-family:var(--f-b);font-size:14.5px;line-height:1.45;font-weight:400;font-stretch:100%;letter-spacing:0;text-align:left;white-space:normal}
-.pop b{display:block;font-family:var(--f-d);font-stretch:108%;font-weight:700;font-size:14.5px;margin-bottom:3px}
+ box-shadow:6px 6px 0 rgba(39,38,94,.14);font-family:var(--f-d);font-size:14.5px;line-height:1.45;font-weight:400;text-align:left;white-space:normal}
+.pop b{display:block;font-family:var(--f-d);font-weight:600;font-size:14.5px;margin-bottom:3px}
 .pop i{display:block;font-style:normal;font-family:var(--f-d);font-size:12.5px;color:var(--mute);margin-top:7px}
 .dn{top:calc(100% + 6px);left:0}.up{bottom:calc(100% + 6px);left:0}.rt{right:0;left:auto}
 .tip:hover>.pop,.tip:focus>.pop,.tip:focus-within>.pop{display:block}
@@ -70,15 +70,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .hatch{background:repeating-linear-gradient(135deg,rgba(255,226,130,.95) 0 4px,rgba(255,231,154,.3) 4px 8px)}
 .openitem{border:2px dashed var(--ink);padding:10px 14px;font-family:var(--f-d);font-size:14px;line-height:1.45;background:repeating-linear-gradient(135deg,rgba(255,231,154,.9) 0 6px,rgba(255,231,154,.4) 6px 12px)}
 .openitem b{font-weight:700}
-.callout{border-left:5px solid var(--inkl);padding:4px 0 4px 18px;font-family:var(--f-d);font-size:15px;line-height:1.5}
-.callout b{font-weight:700}
+.callout{border-left:5px solid var(--inkl);padding:4px 0 4px 18px;font-family:var(--f-b);font-size:17px;line-height:1.45}
+.callout b{font-weight:600}
 
 /* hero figure */
 .fig{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;font-family:var(--f-d)}
 .fig>div>.fz{margin:0}
 .fig .h{font-size:15px;font-weight:700;line-height:1.25;padding-bottom:10px}
 .fz{position:relative;padding:12px 14px;min-height:78px;color:var(--ink)}
-.fz .d{font-size:17px;font-stretch:110%}
+.fz .d{font-size:19px}
 .fz .s{font-size:13px;line-height:1.35;margin-top:3px}
 .z-us{background:var(--us)}.z-ov{background:#A99CD3}.z-eu{background:var(--eu)}
 .z-nus{border:2.5px dashed var(--usl);color:var(--ust)}
@@ -93,9 +93,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .cell{display:flex;align-items:flex-start;gap:10px;padding:14px 10px 14px 6px;min-height:68px;font-family:var(--f-d);font-size:14.5px;line-height:1.3}
 .nm{display:flex;gap:12px;padding:14px 8px 14px 0;cursor:pointer}
 .nm .bar{flex:0 0 6px;align-self:stretch}
-.nm .t{display:block;font-family:var(--f-d);font-stretch:108%;font-weight:800;font-size:16.5px;line-height:1.18}
+.nm .t{display:block;font-family:var(--f-d);font-weight:600;font-size:16.5px;line-height:1.2}
 .nm .s{display:block;font-family:var(--f-d);font-size:13.5px;color:var(--mute);margin-top:3px}
-.ch{font-family:var(--f-d);font-size:13.5px;font-weight:700;line-height:1.25;padding:0 10px 8px 6px;border-bottom:3px solid var(--ink);display:flex;align-items:flex-end}
+.ch{font-family:var(--f-d);font-size:13.5px;font-weight:600;line-height:1.25;padding:0 10px 8px 6px;border-bottom:3px solid var(--ink);display:flex;align-items:flex-end}
 .grp{margin-top:22px}
 .grp>.gh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:10px 0 4px}
 .fl{padding:4px 0;margin-right:20px;border-bottom:3px solid transparent;cursor:pointer;font-family:var(--f-d);font-size:15px}
@@ -106,23 +106,23 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 /* reading pages */
 .cols{display:grid;grid-template-columns:230px minmax(0,1fr) 270px;gap:44px;align-items:start}
 .toc a{display:block;text-decoration:none;font-family:var(--f-d);font-size:15px;padding:6px 0 6px 12px;border-left:6px solid var(--bar,var(--rule));margin-bottom:6px;line-height:1.25}
-.toc a.on{font-weight:800}
-.toc .g{font-family:var(--f-d);font-weight:800;font-size:15px;border-top:3px solid var(--bar);padding-top:6px;margin:22px 0 8px}
+.toc a.on{font-weight:600}
+.toc .g{font-family:var(--f-d);font-weight:600;font-size:15px;border-top:3px solid var(--bar);padding-top:6px;margin:22px 0 8px}
 .margin{border-left:2px solid var(--ink);padding-left:22px}
-.margin h3{font-size:15px;margin:0 0 4px}
-.margin p{font-size:15.5px;line-height:1.5;margin:0 0 16px}
+.margin h3{font-family:var(--f-d);font-weight:600;font-size:15px;margin:0 0 4px}
+.margin p{font-size:17px;line-height:1.45;margin:0 0 16px}
 .metaline{display:flex;flex-wrap:wrap;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-family:var(--f-d);font-size:14.5px;margin:18px 0 28px}
 .metaline span{padding:10px 18px 10px 0;margin-right:18px;border-right:1px solid var(--rule)}
 .metaline span:last-child{border-right:0}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .cards>div{border-top:3px solid var(--cc,var(--usl));padding-top:8px}
-.cards h3{color:var(--ct,var(--ust));margin-bottom:6px;font-size:17px}
-.cards p{font-size:16px;line-height:1.5;margin:0}
+.cards h3{color:var(--ct,var(--ust));margin-bottom:6px;font-size:19px}
+.cards p{font-size:17.5px;line-height:1.45;margin:0}
 .dashrule{border-top:3px dashed var(--ink);padding-top:14px;display:flex;gap:14px;align-items:flex-start}
 .stack>*+*{margin-top:34px}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:34px 44px;border-top:2px solid var(--ink);padding-top:26px;margin-top:48px}
 .cmp>div:first-child{grid-column:1 / -1}
-.cmp .it{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--rule);font-size:16px;line-height:1.5}
+.cmp .it{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--rule);font-size:17.5px;line-height:1.45}
 .cmp .it:last-child{border-bottom:1px solid var(--rule)}
 .venn{position:relative;flex:0 0 26px;height:20px;margin-top:5px}
 .venn i{position:absolute;top:0;width:15px;height:15px;border-radius:50%}
@@ -134,40 +134,40 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .sec{padding:34px 0}
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px}
 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
-table.t{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.45}
+table.t{border-collapse:collapse;width:100%;font-size:17px;line-height:1.4}
 table.t th{font-family:var(--f-d);font-size:13.5px;text-align:left;padding:0 12px 8px 0;border-bottom:3px solid var(--ink);vertical-align:bottom}
 table.t td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
 .scroll{overflow-x:auto}
-.bignum{font-family:var(--f-d);font-stretch:118%;font-weight:800;font-size:clamp(34px,5vw,52px);line-height:1;color:var(--ust)}
+.bignum{font-family:var(--f-h);font-weight:700;font-variant-numeric:lining-nums;white-space:nowrap;font-size:clamp(40px,5.6vw,60px);line-height:1;color:var(--ust)}
 .bignum.e{color:var(--eut)}
 .rail{list-style:none;margin:0;padding:0;border-left:3px solid var(--ink)}
 .rail li{position:relative;padding:0 0 18px 24px}
 .rail li::before{content:"";position:absolute;left:-10px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--dc,var(--inkl));border:3px solid var(--bc,var(--paper))}
-.rail .when{font-family:var(--f-d);font-weight:800;font-size:15px}
-.rail p{margin:2px 0 0;font-size:15.5px;line-height:1.45}
+.rail .when{font-family:var(--f-d);font-weight:600;font-size:15px}
+.rail p{margin:2px 0 0;font-size:17px;line-height:1.4}
 .step{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
 .step label{display:block;cursor:pointer;padding:0 14px 0 0;position:relative}
 .step label .ic{display:flex;align-items:center;margin-bottom:14px}
 .step label .ic::after{content:"";flex:1;border-top:4px solid var(--ink);margin-left:10px}
 .step label:last-child .ic::after{margin-right:0}
-.step h3{font-size:19px;font-stretch:112%;margin-bottom:6px}
-.step .tag{font-family:var(--f-d);font-size:14px;font-weight:700;margin-bottom:6px}
-.step p{font-size:15.5px;line-height:1.5;margin:0}
+.step h3{font-size:21px;margin-bottom:6px}
+.step .tag{font-family:var(--f-d);font-size:14px;font-weight:600;margin-bottom:6px}
+.step p{font-size:17px;line-height:1.4;margin:0}
 .det{display:none}
-.chip{display:inline-block;font-family:var(--f-d);font-size:13px;font-weight:700;padding:3px 10px;border:2px solid var(--ink);margin:0 8px 8px 0}
+.chip{display:inline-block;font-family:var(--f-d);font-size:13px;font-weight:600;padding:3px 10px;border:2px solid var(--ink);margin:0 8px 8px 0}
 .rec{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:44px;border-top:3px solid var(--rc);padding-top:22px;margin-top:40px}
-.rec .kick{font-family:var(--f-d);font-weight:700;font-size:15px;color:var(--rt)}
+.rec .kick{font-family:var(--f-d);font-weight:600;font-size:15px;color:var(--rt)}
 .rec ol,.rec ul{padding-left:1.2em;margin:0 0 1em}
 .rec li{margin-bottom:.55em}
-.kv{display:grid;grid-template-columns:110px minmax(0,1fr);border-top:1px solid var(--rule);font-size:15.5px;line-height:1.45}
+.kv{display:grid;grid-template-columns:110px minmax(0,1fr);border-top:1px solid var(--rule);font-size:17px;line-height:1.4}
 .kv>div{padding:10px 8px 10px 0;border-bottom:1px solid var(--rule)}
-.kv>div:nth-child(odd){font-family:var(--f-d);font-weight:700;font-size:13.5px;padding-top:12px}
+.kv>div:nth-child(odd){font-family:var(--f-d);font-weight:600;font-size:13.5px;padding-top:12px}
 .obj{border-top:1px solid var(--rule);padding:22px 0}
 .obj:last-child{border-bottom:1px solid var(--rule)}
-.obj h3{font-size:clamp(19px,2.2vw,23px);margin-bottom:10px}
+.obj h3{font-size:clamp(21px,2.4vw,26px);margin-bottom:10px}
 .obj .a{border-left:4px solid var(--usl);padding-left:18px}
 .obj .o{font-family:var(--f-d);font-size:14.5px;color:var(--mute);margin-top:10px}
-.obj .o b{color:var(--ink)}
+.obj .o b{color:var(--ink);font-weight:600}
 footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-family:var(--f-d);font-size:14px;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
 .hide-sm{display:initial}
 
@@ -177,7 +177,7 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
  .cols>.margin{grid-column:1 / -1;margin-top:8px}
  .cmp{grid-template-columns:1fr;gap:30px}
  .three{grid-template-columns:1fr;gap:24px}
- .home-top{flex-direction:column}
+ .home-top{flex-direction:column;align-items:flex-start!important}
  .led-grid{flex-direction:column}
  .sidepanel{border-left:0;border-top:2px solid var(--ink);padding:22px 0 0}
 }
@@ -200,7 +200,7 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
  .nav{margin-left:0}
 }
 @media (max-width:520px){
- body{font-size:16.5px}
+ body{font-size:18px}
  .kv{grid-template-columns:1fr}
  .kv>div:nth-child(odd){border-bottom:0;padding-bottom:0}
  .fig{grid-template-columns:1fr;gap:22px 0}
@@ -220,14 +220,14 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
 <section class="sec rule2" style="margin-top:30px"><h2 style="margin-bottom:12px">How the dashboard values were set</h2>
 <div class="two"><div><p>Each instrument is judged on three questions. <b>Is it binding?</b> Does it create legal duties, or is it guidance. <b>Does it reach an unclassified trial wearable?</b> A consumer-grade sensor never cleared as a medical device. <b>Does it cover cross-border transfer?</b> Does it address sending trial data between the U.S. and the EU.</p>
 <p>Each answer is one of four symbols: covers it, partly or unsettled, a gap, or outside what the instrument is for. “Unsettled” means the text does not answer the question, and the answer may be yes or no.</p></div>
-<div><p>Values come from the text of the instrument, or from an FDA or EU document that quotes or explains it. Where a statement is my own inference, it is labeled “my reading” or “author's reading.” Quoted text is copied from the source.</p>
+<div><p>Values come from the text of the instrument, or from an FDA or EU document that quotes or explains it. Where a statement is my own inference, it is labeled “my reading” or “author’s reading.” Quoted text is copied from the source.</p>
 <p>The scenario on the pathway page is illustrative. It is not a real trial.</p></div></div></section>
 
-<section class="sec rule2"><h2 style="margin-bottom:12px">What was read</h2><div class="scroll"><table class="t" style="min-width:680px"><thead><tr><th style="width:22%">Instrument</th><th style="width:34%">Edition</th><th>How it was read</th></tr></thead><tbody><tr><td class="u"><b>FD&amp;C Act §524B</b></td><td>Statute text, 21 U.S.C. §360n-2 (govinfo), and FDA's February 3, 2026 premarket cybersecurity guidance</td><td>Statute read in full; guidance sections III and VII read.</td></tr><tr><td class="u"><b>FDA decentralized trials guidance and Part 11 Q&amp;A</b></td><td>September 2024 guidance and October 2024 Q&amp;A</td><td>Read in the sections on digital health technologies, security and IT providers. Not every page was read.</td></tr><tr><td class="u"><b>21 CFR Part 11</b></td><td>eCFR text current as of October 13, 2026</td><td>§§11.1, 11.10, 11.30 read.</td></tr><tr><td class="u"><b>HIPAA Security Rule</b></td><td>45 CFR §160.103 and Part 164, Title 45 (10-1-25)</td><td>Definitions and general rules read. Reading of sponsor status is mine.</td></tr><tr><td class="u"><b>FTC Health Breach Notification Rule</b></td><td>16 CFR Part 318, eCFR, read November 2026</td><td>§§318.1–318.7 read. Section 5 cases described from FTC guidance.</td></tr><tr><td class="u"><b>MDR Annex I and MDCG 2019-16</b></td><td>Regulation (EU) 2017/745; MDCG 2019-16 Rev.1</td><td>Annex I sections 17.2, 17.4 and Art. 2(1) read. MDCG guidance cited, not read in full.</td></tr><tr><td class="u"><b>EU MDR amendment proposal</b></td><td>COM(2025) 1023 final and annexes, 16 December 2025</td><td>Cybersecurity entries and recital read. A proposal.</td></tr><tr><td class="u"><b>Cyber Resilience Act</b></td><td>Regulation (EU) 2024/2847</td><td>Arts. 2, 3(22), 71, recitals 13 and 25 read. No mention of clinical trials found by text search.</td></tr><tr><td class="u"><b>GDPR</b></td><td>Regulation (EU) 2016/679</td><td>Arts. 32 and 33 read; Chapter V described at the level of its article headings.</td></tr><tr><td class="u"><b>EU adequacy decisions page</b></td><td>European Commission page checked November 22, 2026</td><td>Data Privacy Framework entry read.</td></tr><tr><td class="u"><b>European Health Data Space</b></td><td>Regulation (EU) 2025/327</td><td>Arts. 47, 51, 73, 88 to 91 and 105 read.</td></tr><tr><td class="u"><b>IMDRF N60, N70, N73</b></td><td>IMDRF/CYBER WG documents (2020, 2023)</td><td>N60 scope, principles and table of contents read; N70 and N73 summarized from their titles and sections.</td></tr><tr><td class="u"><b>ICH E6(R3)</b></td><td>Final version adopted 6 January 2025</td><td>Section 4.3 and the source-records definition read.</td></tr><tr><td class="u"><b>IMDRF Standard Operating Procedures</b></td><td>N2, Edition 13, 26 March 2025</td><td>§§3.1, 6.1 and 6.2.1 read.</td></tr><tr><td class="u"><b>FDA Compliance Program 7348.810</b></td><td>Implemented September 15, 2021</td><td>Part III, section N read.</td></tr><tr><td class="u"><b>FDA GCP collaboration page</b></td><td>Content current as of December 23, 2021</td><td>Read in full.</td></tr><tr><td class="u"><b>IEC 81001-5-1; ISO/IEC 27001; SOC 2</b></td><td>Table of contents and definitions only</td><td>Requirement text not read. Described from the publisher's preview, iso.org and the AICPA guide title.</td></tr><tr><td class="u"><b>EMA-FDA-PMDA GCP pilot report</b></td><td>June 2017 to December 2018</td><td>Read in full.</td></tr></tbody></table></div></section>
+<section class="sec rule2"><h2 style="margin-bottom:12px">What was read</h2><div class="scroll"><table class="t" style="min-width:680px"><thead><tr><th style="width:22%">Instrument</th><th style="width:34%">Edition</th><th>How it was read</th></tr></thead><tbody><tr><td class="u"><b>FD&amp;C Act §524B</b></td><td>Statute text, 21 U.S.C. §360n-2 (govinfo), and FDA’s February 3, 2026 premarket cybersecurity guidance</td><td>Statute read in full; guidance sections III and VII read.</td></tr><tr><td class="u"><b>FDA decentralized trials guidance and Part 11 Q&amp;A</b></td><td>September 2024 guidance and October 2024 Q&amp;A</td><td>Read in the sections on digital health technologies, security and IT providers. Not every page was read.</td></tr><tr><td class="u"><b>21 CFR Part 11</b></td><td>eCFR text current as of October 13, 2026</td><td>§§11.1, 11.10, 11.30 read.</td></tr><tr><td class="u"><b>HIPAA Security Rule</b></td><td>45 CFR §160.103 and Part 164, Title 45 (10-1-25)</td><td>Definitions and general rules read. Reading of sponsor status is mine.</td></tr><tr><td class="u"><b>FTC Health Breach Notification Rule</b></td><td>16 CFR Part 318, eCFR, read November 2026</td><td>§§318.1–318.7 read. Section 5 cases described from FTC guidance.</td></tr><tr><td class="u"><b>MDR Annex I and MDCG 2019-16</b></td><td>Regulation (EU) 2017/745; MDCG 2019-16 Rev.1</td><td>Annex I sections 17.2, 17.4 and Art. 2(1) read. MDCG guidance cited, not read in full.</td></tr><tr><td class="u"><b>EU MDR amendment proposal</b></td><td>COM(2025) 1023 final and annexes, 16 December 2025</td><td>Cybersecurity entries and recital read. A proposal.</td></tr><tr><td class="u"><b>Cyber Resilience Act</b></td><td>Regulation (EU) 2024/2847</td><td>Arts. 2, 3(22), 71, recitals 13 and 25 read. No mention of clinical trials found by text search.</td></tr><tr><td class="u"><b>GDPR</b></td><td>Regulation (EU) 2016/679</td><td>Arts. 32 and 33 read; Chapter V described at the level of its article headings.</td></tr><tr><td class="u"><b>EU adequacy decisions page</b></td><td>European Commission page checked November 22, 2026</td><td>Data Privacy Framework entry read.</td></tr><tr><td class="u"><b>European Health Data Space</b></td><td>Regulation (EU) 2025/327</td><td>Arts. 47, 51, 73, 88 to 91 and 105 read.</td></tr><tr><td class="u"><b>IMDRF N60, N70, N73</b></td><td>IMDRF/CYBER WG documents (2020, 2023)</td><td>N60 scope, principles and table of contents read; N70 and N73 summarized from their titles and sections.</td></tr><tr><td class="u"><b>ICH E6(R3)</b></td><td>Final version adopted 6 January 2025</td><td>Section 4.3 and the source-records definition read.</td></tr><tr><td class="u"><b>IMDRF Standard Operating Procedures</b></td><td>N2, Edition 13, 26 March 2025</td><td>§§3.1, 6.1 and 6.2.1 read.</td></tr><tr><td class="u"><b>FDA Compliance Program 7348.810</b></td><td>Implemented September 15, 2021</td><td>Part III, section N read.</td></tr><tr><td class="u"><b>FDA GCP collaboration page</b></td><td>Content current as of December 23, 2021</td><td>Read in full.</td></tr><tr><td class="u"><b>IEC 81001-5-1; ISO/IEC 27001; SOC 2</b></td><td>Table of contents and definitions only</td><td>Requirement text not read. Described from the publisher’s preview, iso.org and the AICPA guide title.</td></tr><tr><td class="u"><b>EMA-FDA-PMDA GCP pilot report</b></td><td>June 2017 to December 2018</td><td>Read in full.</td></tr></tbody></table></div></section>
 
-<section class="sec rule2"><h2 style="margin-bottom:12px">Limits</h2><ul style="padding-left:1.1em;margin:0;max-width:900px"><li style='margin-bottom:10px'><b>Incident and market sources.</b> The breach statistics and market figures come from press and market-research sources. The Novo Nordisk and Amgen incidents also draw on the companies' own statements. The DM Clinical Research database owner is not confirmed.</li><li style='margin-bottom:10px'><b>No count of unregulated trial tools.</b> I found no study that counts how many decentralized-trial tools sit outside device regulation, which is a research gap.</li><li style='margin-bottom:10px'><b>Not legal advice.</b> This is a policy reference for a course. It reads statutes and guidance at the level needed for the argument and does not replace advice on a specific trial.</li></ul></section>
+<section class="sec rule2"><h2 style="margin-bottom:12px">Limits</h2><ul style="padding-left:1.1em;margin:0;max-width:900px"><li style='margin-bottom:10px'><b>Incident and market sources.</b> The breach statistics and market figures come from press and market-research sources. The Novo Nordisk and Amgen incidents also draw on the companies’ own statements. The DM Clinical Research database owner is not confirmed.</li><li style='margin-bottom:10px'><b>No count of unregulated trial tools.</b> I found no study that counts how many decentralized-trial tools sit outside device regulation, which is a research gap.</li><li style='margin-bottom:10px'><b>Not legal advice.</b> This is a policy reference for a course. It reads statutes and guidance at the level needed for the argument and does not replace advice on a specific trial.</li></ul></section>
 
-<section class="sec rule2" id="sources"><h2 style="margin-bottom:12px">Sources</h2><ol style="padding-left:1.3em;margin:0;max-width:900px;font-size:16px"><li style='margin-bottom:8px'>FDA. <em>Cybersecurity in Medical Devices: Quality Management System Considerations and Content of Premarket Submissions.</em> Issued February 3, 2026.</li><li style='margin-bottom:8px'>21 U.S.C. §360n-2 (United States Code, 2023 edition). govinfo.</li><li style='margin-bottom:8px'>FDA. <em>Conducting Clinical Trials With Decentralized Elements.</em> September 2024.</li><li style='margin-bottom:8px'>FDA. <em>Electronic Systems, Electronic Records, and Electronic Signatures in Clinical Investigations: Questions and Answers.</em> October 2024.</li><li style='margin-bottom:8px'>21 CFR Part 11. eCFR, current as of October 13, 2026.</li><li style='margin-bottom:8px'>45 CFR §160.103 and Part 164. Title 45, 10-1-25 edition.</li><li style='margin-bottom:8px'>16 CFR Part 318, Health Breach Notification Rule. eCFR, read November 2026.</li><li style='margin-bottom:8px'>FTC. <em>Health Breach Notification Rule</em>, final rule. Federal Register, May 30, 2024 (FR Doc. 2024-10855). Effective July 29, 2024.</li><li style='margin-bottom:8px'>FTC business guidance on health data, Section 5 and the Health Breach Notification Rule (ftc.gov/node/81410).</li><li style='margin-bottom:8px'>Regulation (EU) 2017/745 (MDR). OJ L 117, 5.5.2017.</li><li style='margin-bottom:8px'>MDCG 2019-16 Rev.1. <em>Guidance on Cybersecurity for medical devices.</em> December 2019, revised July 2020.</li><li style='margin-bottom:8px'>European Commission. Proposal COM(2025) 1023 final and Annexes 1 to 2, amending Regulations (EU) 2017/745 and (EU) 2017/746. 16 December 2025.</li><li style='margin-bottom:8px'>Regulation (EU) 2024/2847 (Cyber Resilience Act). OJ L, 20.11.2024.</li><li style='margin-bottom:8px'>Regulation (EU) 2016/679 (GDPR). OJ L 119, 4.5.2016.</li><li style='margin-bottom:8px'>European Commission. <em>Data protection adequacy for non-EU countries.</em> Page checked November 22, 2026.</li><li style='margin-bottom:8px'>Regulation (EU) 2025/327 (European Health Data Space). OJ L, 5.3.2025.</li><li style='margin-bottom:8px'>IMDRF/CYBER WG/N60FINAL:2020; N70FINAL:2023; N73FINAL:2023.</li><li style='margin-bottom:8px'>IMDRF/MC/N2FINAL:2025 (Edition 13). IMDRF Standard Operating Procedures. 26 March 2025.</li><li style='margin-bottom:8px'>FDA. CDRH International Harmonization Annual Assessment, Fiscal Year 2025.</li><li style='margin-bottom:8px'>IMDRF. Outcome Statement of the 28th Session, Sapporo, September 2025.</li><li style='margin-bottom:8px'>ICH. <em>Guideline for Good Clinical Practice E6(R3).</em> Final version adopted 6 January 2025.</li><li style='margin-bottom:8px'>IEC 81001-5-1:2021, <em>Health software and health IT systems safety, effectiveness and security – Part 5-1: Security – Activities in the product life cycle.</em> Table of contents from the publisher's preview (ANSI webstore). Definition of health software (clause 3.15) as quoted by Johner Institute, “IEC 81001-5-1” (blog.johner-institute.com). Scope also summarized in King &amp; Spalding, client alert, February 8, 2022.</li><li style='margin-bottom:8px'>ISO/IEC 27001:2022, <em>Information security, cybersecurity and privacy protection – Information security management systems – Requirements.</em> Description from iso.org.</li><li style='margin-bottom:8px'>AICPA, <em>SOC 2 Reporting on an Examination of Controls at a Service Organization Relevant to Security, Availability, Processing Integrity, Confidentiality, or Privacy</em> (guide).</li><li style='margin-bottom:8px'>EMA, FDA and PMDA. <em>GCP Pilot Collaboration Report, June 2017 to December 2018.</em></li><li style='margin-bottom:8px'>FDA. <em>Compliance Program 7348.810, Sponsors and Contract Research Organizations.</em> Implemented September 15, 2021.</li><li style='margin-bottom:8px'>FDA. <em>Good Clinical Practice (GCP) Inspection Collaboration with International Regulators for Drug Development.</em> Content current as of December 23, 2021.</li><li style='margin-bottom:8px'>HHS breach portal snapshot of July 7, 2025, as reported by BankInfoSecurity (345 breaches; about 29.9 million people; 127 involving business associates).</li><li style='margin-bottom:8px'>DM Clinical Research: securitymagazine.com/articles/101409-16m-clinical-research-records-exposed-in-data-leakage; hipaajournal.com/clinical-trials-database-containing-1-6-million-records-exposed-online.</li><li style='margin-bottom:8px'>Novo Nordisk: theregister.com/security/2026/06/12/novo-nordisk-says-hackers-stole-clinical-trial-data/5254812; novonordisk.com statement of 11 June 2026.</li><li style='margin-bottom:8px'>Amgen: amgen.com/cybersecurity-event; bankinfosecurity.net/amgen-tells-sec-hack-exposed-patient-data-trade-secrets-a-32401.</li><li style='margin-bottom:8px'>BleepingComputer. “Garmin outage caused by confirmed WastedLocker ransomware attack.” July 24, 2020.</li><li style='margin-bottom:8px'>Bellingcat. “After Strava, Polar is Revealing the Homes of Soldiers and Spies.” July 8, 2018 (with De Correspondent).</li><li style='margin-bottom:8px'>GM Insights. Decentralized clinical trials market report: gminsights.com/industry-analysis/decentralized-clinical-trials-market.</li><li style='margin-bottom:8px'>Eversheds Sutherland. “Proposed EU MDR/IVDR revision: a regulatory system at a crossroads.” August 28, 2026. Says the proposal is being considered under the ordinary legislative procedure by the European Parliament and the Council.</li><li style='margin-bottom:8px'>Miyakoshi T, Ito YM. Assessing the current utilization status of wearable devices in clinical research. Clinical Trials. 2024;21(4):470–482. doi:10.1177/17407745241230287.</li></ol></section>
+<section class="sec rule2" id="sources"><h2 style="margin-bottom:12px">Sources</h2><ol style="padding-left:1.3em;margin:0;max-width:900px;font-size:18px"><li style='margin-bottom:8px'>FDA. <em>Cybersecurity in Medical Devices: Quality Management System Considerations and Content of Premarket Submissions.</em> Issued February 3, 2026.</li><li style='margin-bottom:8px'>21 U.S.C. §360n-2 (United States Code, 2023 edition). govinfo.</li><li style='margin-bottom:8px'>FDA. <em>Conducting Clinical Trials With Decentralized Elements.</em> September 2024.</li><li style='margin-bottom:8px'>FDA. <em>Electronic Systems, Electronic Records, and Electronic Signatures in Clinical Investigations: Questions and Answers.</em> October 2024.</li><li style='margin-bottom:8px'>21 CFR Part 11. eCFR, current as of October 13, 2026.</li><li style='margin-bottom:8px'>45 CFR §160.103 and Part 164. Title 45, 10-1-25 edition.</li><li style='margin-bottom:8px'>16 CFR Part 318, Health Breach Notification Rule. eCFR, read November 2026.</li><li style='margin-bottom:8px'>FTC. <em>Health Breach Notification Rule</em>, final rule. Federal Register, May 30, 2024 (FR Doc. 2024-10855). Effective July 29, 2024.</li><li style='margin-bottom:8px'>FTC business guidance on health data, Section 5 and the Health Breach Notification Rule (ftc.gov/node/81410).</li><li style='margin-bottom:8px'>Regulation (EU) 2017/745 (MDR). OJ L 117, 5.5.2017.</li><li style='margin-bottom:8px'>MDCG 2019-16 Rev.1. <em>Guidance on Cybersecurity for medical devices.</em> December 2019, revised July 2020.</li><li style='margin-bottom:8px'>European Commission. Proposal COM(2025) 1023 final and Annexes 1 to 2, amending Regulations (EU) 2017/745 and (EU) 2017/746. 16 December 2025.</li><li style='margin-bottom:8px'>Regulation (EU) 2024/2847 (Cyber Resilience Act). OJ L, 20.11.2024.</li><li style='margin-bottom:8px'>Regulation (EU) 2016/679 (GDPR). OJ L 119, 4.5.2016.</li><li style='margin-bottom:8px'>European Commission. <em>Data protection adequacy for non-EU countries.</em> Page checked November 22, 2026.</li><li style='margin-bottom:8px'>Regulation (EU) 2025/327 (European Health Data Space). OJ L, 5.3.2025.</li><li style='margin-bottom:8px'>IMDRF/CYBER WG/N60FINAL:2020; N70FINAL:2023; N73FINAL:2023.</li><li style='margin-bottom:8px'>IMDRF/MC/N2FINAL:2025 (Edition 13). IMDRF Standard Operating Procedures. 26 March 2025.</li><li style='margin-bottom:8px'>FDA. CDRH International Harmonization Annual Assessment, Fiscal Year 2025.</li><li style='margin-bottom:8px'>IMDRF. Outcome Statement of the 28th Session, Sapporo, September 2025.</li><li style='margin-bottom:8px'>ICH. <em>Guideline for Good Clinical Practice E6(R3).</em> Final version adopted 6 January 2025.</li><li style='margin-bottom:8px'>IEC 81001-5-1:2021, <em>Health software and health IT systems safety, effectiveness and security – Part 5-1: Security – Activities in the product life cycle.</em> Table of contents from the publisher’s preview (ANSI webstore). Definition of health software (clause 3.15) as quoted by Johner Institute, “IEC 81001-5-1” (blog.johner-institute.com). Scope also summarized in King &amp; Spalding, client alert, February 8, 2022.</li><li style='margin-bottom:8px'>ISO/IEC 27001:2022, <em>Information security, cybersecurity and privacy protection – Information security management systems – Requirements.</em> Description from iso.org.</li><li style='margin-bottom:8px'>AICPA, <em>SOC 2 Reporting on an Examination of Controls at a Service Organization Relevant to Security, Availability, Processing Integrity, Confidentiality, or Privacy</em> (guide).</li><li style='margin-bottom:8px'>EMA, FDA and PMDA. <em>GCP Pilot Collaboration Report, June 2017 to December 2018.</em></li><li style='margin-bottom:8px'>FDA. <em>Compliance Program 7348.810, Sponsors and Contract Research Organizations.</em> Implemented September 15, 2021.</li><li style='margin-bottom:8px'>FDA. <em>Good Clinical Practice (GCP) Inspection Collaboration with International Regulators for Drug Development.</em> Content current as of December 23, 2021.</li><li style='margin-bottom:8px'>HHS breach portal snapshot of July 7, 2025, as reported by BankInfoSecurity (345 breaches; about 29.9 million people; 127 involving business associates).</li><li style='margin-bottom:8px'>DM Clinical Research: securitymagazine.com/articles/101409-16m-clinical-research-records-exposed-in-data-leakage; hipaajournal.com/clinical-trials-database-containing-1-6-million-records-exposed-online.</li><li style='margin-bottom:8px'>Novo Nordisk: theregister.com/security/2026/06/12/novo-nordisk-says-hackers-stole-clinical-trial-data/5254812; novonordisk.com statement of 11 June 2026.</li><li style='margin-bottom:8px'>Amgen: amgen.com/cybersecurity-event; bankinfosecurity.net/amgen-tells-sec-hack-exposed-patient-data-trade-secrets-a-32401.</li><li style='margin-bottom:8px'>BleepingComputer. “Garmin outage caused by confirmed WastedLocker ransomware attack.” July 24, 2020.</li><li style='margin-bottom:8px'>Bellingcat. “After Strava, Polar is Revealing the Homes of Soldiers and Spies.” July 8, 2018 (with De Correspondent).</li><li style='margin-bottom:8px'>GM Insights. Decentralized clinical trials market report: gminsights.com/industry-analysis/decentralized-clinical-trials-market.</li><li style='margin-bottom:8px'>Eversheds Sutherland. “Proposed EU MDR/IVDR revision: a regulatory system at a crossroads.” August 28, 2026. Says the proposal is being considered under the ordinary legislative procedure by the European Parliament and the Council.</li><li style='margin-bottom:8px'>Miyakoshi T, Ito YM. Assessing the current utilization status of wearable devices in clinical research. Clinical Trials. 2024;21(4):470–482. doi:10.1177/17407745241230287.</li></ol></section>
 
 </main>
 <footer class="wrap"><span>Clinical Trial Cybersecurity Map. Ryan Pon. Capstone Project, Cybersecurity and Health Data Policy, Duke Sanford PPS 552.</span><span>A policy reference, not legal advice. <a class="lk" href="about.html">Sources and methodology</a></span></footer>

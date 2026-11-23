@@ -4,29 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Clinical Trial Cybersecurity Map</title>
-<meta name="description" content="Where U.S. and EU cybersecurity rules for decentralized clinical trial technology line up, and where they do not.">
+<meta name="description" content="How U.S. and EU cybersecurity rules apply to decentralized clinical trial technology.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Literata:opsz,wght@7..72,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* Layout concept: a policy reference. Wide ledger on the home page, one-column reading pages elsewhere. */
 :root{--us:#B7CBF7;--eu:#F9C2DA;--usl:#7F9DE0;--eul:#EE90BA;--ust:#2E4E9E;--eut:#B02F6B;
  --ink:#27265E;--inkl:#8C89C6;--inkt:#27265E;--sun:#FFE79A;--mute:#5D5C82;--rule:rgba(39,38,94,.18);--paper:#F6F7FB;--white:#fff;
- --f-d:'Archivo','Helvetica Neue',Arial,sans-serif;--f-b:'Literata',Georgia,'Times New Roman',serif;color-scheme:light}
+ --f-d:'Public Sans','Helvetica Neue',Arial,sans-serif;--f-b:'EB Garamond',Garamond,Georgia,'Times New Roman',serif;--f-h:var(--f-b);color-scheme:light}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-b);font-size:17px;line-height:1.6;
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-b);font-size:19px;line-height:1.5;
  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 a{color:inherit}
 .wrap{max-width:1240px;margin:0 auto}
-.d{font-family:var(--f-d);font-stretch:114%;font-weight:800;letter-spacing:-.012em;line-height:1.1;text-wrap:balance}
-.u{font-family:var(--f-d);font-stretch:100%}
+.d{font-family:var(--f-h);font-weight:700;line-height:1.15;text-wrap:balance}
+.u{font-family:var(--f-d)}
 h1,h2,h3{margin:0}
-h1{font-family:var(--f-d);font-stretch:112%;font-weight:800;letter-spacing:-.012em;line-height:1.08;font-size:clamp(30px,4.6vw,46px);text-wrap:balance}
-h2{font-family:var(--f-d);font-stretch:112%;font-weight:800;letter-spacing:-.01em;line-height:1.15;font-size:clamp(22px,2.6vw,28px);text-wrap:balance}
-h3{font-family:var(--f-d);font-stretch:108%;font-weight:700;line-height:1.2;font-size:18px}
+h1{font-family:var(--f-h);font-weight:700;line-height:1.1;font-size:clamp(34px,5vw,52px);text-wrap:balance}
+h2{font-family:var(--f-h);font-weight:700;line-height:1.18;font-size:clamp(25px,2.9vw,32px);text-wrap:balance}
+h3{font-family:var(--f-h);font-weight:600;line-height:1.22;font-size:20px}
 p{margin:0 0 1em}
-.lead{font-size:clamp(18px,2vw,21px);line-height:1.6}
+.lead{font-size:clamp(20px,2.1vw,23px);line-height:1.5}
 .mute{color:var(--mute)}
 .small{font-size:14px}
 .lk{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;font-weight:600}
@@ -43,19 +43,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .mark{position:relative;display:inline-block;width:40px;height:26px;flex:0 0 40px}
 .mark i{position:absolute;top:0;width:26px;height:26px;border-radius:50%;mix-blend-mode:multiply}
 .mark .a{left:0;background:var(--us)}.mark .b{left:14px;background:var(--eu)}
-.brand span.t{font-family:var(--f-d);font-stretch:114%;font-weight:800;font-size:19px;line-height:1.15}
+.brand span.t{font-family:var(--f-h);font-weight:700;font-size:23px;line-height:1.15}
 .nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:4px 22px;font-family:var(--f-d)}
 .nav a{text-decoration:none;font-size:15px;padding:6px 0;border-bottom:3px solid transparent}
 .nav a:hover{border-bottom-color:var(--rule)}
-.nav a.on{border-bottom-color:var(--ink);font-weight:700}
+.nav a.on{border-bottom-color:var(--ink);font-weight:600}
 .nav a.ref{margin-left:10px;padding-left:22px;border-left:1px solid var(--rule)}
 @media (max-width:860px){.nav a.ref{margin-left:0;padding-left:0;border-left:0}}
 
 /* tooltip pop */
 .tip{position:relative}
 .pop{display:none;position:absolute;z-index:40;width:310px;max-width:min(310px,84vw);background:#fff;color:var(--ink);padding:13px 16px;border-left:5px solid var(--c,var(--ink));
- box-shadow:6px 6px 0 rgba(39,38,94,.14);font-family:var(--f-b);font-size:14.5px;line-height:1.45;font-weight:400;font-stretch:100%;letter-spacing:0;text-align:left;white-space:normal}
-.pop b{display:block;font-family:var(--f-d);font-stretch:108%;font-weight:700;font-size:14.5px;margin-bottom:3px}
+ box-shadow:6px 6px 0 rgba(39,38,94,.14);font-family:var(--f-d);font-size:14.5px;line-height:1.45;font-weight:400;text-align:left;white-space:normal}
+.pop b{display:block;font-family:var(--f-d);font-weight:600;font-size:14.5px;margin-bottom:3px}
 .pop i{display:block;font-style:normal;font-family:var(--f-d);font-size:12.5px;color:var(--mute);margin-top:7px}
 .dn{top:calc(100% + 6px);left:0}.up{bottom:calc(100% + 6px);left:0}.rt{right:0;left:auto}
 .tip:hover>.pop,.tip:focus>.pop,.tip:focus-within>.pop{display:block}
@@ -70,15 +70,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .hatch{background:repeating-linear-gradient(135deg,rgba(255,226,130,.95) 0 4px,rgba(255,231,154,.3) 4px 8px)}
 .openitem{border:2px dashed var(--ink);padding:10px 14px;font-family:var(--f-d);font-size:14px;line-height:1.45;background:repeating-linear-gradient(135deg,rgba(255,231,154,.9) 0 6px,rgba(255,231,154,.4) 6px 12px)}
 .openitem b{font-weight:700}
-.callout{border-left:5px solid var(--inkl);padding:4px 0 4px 18px;font-family:var(--f-d);font-size:15px;line-height:1.5}
-.callout b{font-weight:700}
+.callout{border-left:5px solid var(--inkl);padding:4px 0 4px 18px;font-family:var(--f-b);font-size:17px;line-height:1.45}
+.callout b{font-weight:600}
 
 /* hero figure */
 .fig{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;font-family:var(--f-d)}
 .fig>div>.fz{margin:0}
 .fig .h{font-size:15px;font-weight:700;line-height:1.25;padding-bottom:10px}
 .fz{position:relative;padding:12px 14px;min-height:78px;color:var(--ink)}
-.fz .d{font-size:17px;font-stretch:110%}
+.fz .d{font-size:19px}
 .fz .s{font-size:13px;line-height:1.35;margin-top:3px}
 .z-us{background:var(--us)}.z-ov{background:#A99CD3}.z-eu{background:var(--eu)}
 .z-nus{border:2.5px dashed var(--usl);color:var(--ust)}
@@ -93,9 +93,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .cell{display:flex;align-items:flex-start;gap:10px;padding:14px 10px 14px 6px;min-height:68px;font-family:var(--f-d);font-size:14.5px;line-height:1.3}
 .nm{display:flex;gap:12px;padding:14px 8px 14px 0;cursor:pointer}
 .nm .bar{flex:0 0 6px;align-self:stretch}
-.nm .t{display:block;font-family:var(--f-d);font-stretch:108%;font-weight:800;font-size:16.5px;line-height:1.18}
+.nm .t{display:block;font-family:var(--f-d);font-weight:600;font-size:16.5px;line-height:1.2}
 .nm .s{display:block;font-family:var(--f-d);font-size:13.5px;color:var(--mute);margin-top:3px}
-.ch{font-family:var(--f-d);font-size:13.5px;font-weight:700;line-height:1.25;padding:0 10px 8px 6px;border-bottom:3px solid var(--ink);display:flex;align-items:flex-end}
+.ch{font-family:var(--f-d);font-size:13.5px;font-weight:600;line-height:1.25;padding:0 10px 8px 6px;border-bottom:3px solid var(--ink);display:flex;align-items:flex-end}
 .grp{margin-top:22px}
 .grp>.gh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:10px 0 4px}
 .fl{padding:4px 0;margin-right:20px;border-bottom:3px solid transparent;cursor:pointer;font-family:var(--f-d);font-size:15px}
@@ -106,23 +106,23 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 /* reading pages */
 .cols{display:grid;grid-template-columns:230px minmax(0,1fr) 270px;gap:44px;align-items:start}
 .toc a{display:block;text-decoration:none;font-family:var(--f-d);font-size:15px;padding:6px 0 6px 12px;border-left:6px solid var(--bar,var(--rule));margin-bottom:6px;line-height:1.25}
-.toc a.on{font-weight:800}
-.toc .g{font-family:var(--f-d);font-weight:800;font-size:15px;border-top:3px solid var(--bar);padding-top:6px;margin:22px 0 8px}
+.toc a.on{font-weight:600}
+.toc .g{font-family:var(--f-d);font-weight:600;font-size:15px;border-top:3px solid var(--bar);padding-top:6px;margin:22px 0 8px}
 .margin{border-left:2px solid var(--ink);padding-left:22px}
-.margin h3{font-size:15px;margin:0 0 4px}
-.margin p{font-size:15.5px;line-height:1.5;margin:0 0 16px}
+.margin h3{font-family:var(--f-d);font-weight:600;font-size:15px;margin:0 0 4px}
+.margin p{font-size:17px;line-height:1.45;margin:0 0 16px}
 .metaline{display:flex;flex-wrap:wrap;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-family:var(--f-d);font-size:14.5px;margin:18px 0 28px}
 .metaline span{padding:10px 18px 10px 0;margin-right:18px;border-right:1px solid var(--rule)}
 .metaline span:last-child{border-right:0}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .cards>div{border-top:3px solid var(--cc,var(--usl));padding-top:8px}
-.cards h3{color:var(--ct,var(--ust));margin-bottom:6px;font-size:17px}
-.cards p{font-size:16px;line-height:1.5;margin:0}
+.cards h3{color:var(--ct,var(--ust));margin-bottom:6px;font-size:19px}
+.cards p{font-size:17.5px;line-height:1.45;margin:0}
 .dashrule{border-top:3px dashed var(--ink);padding-top:14px;display:flex;gap:14px;align-items:flex-start}
 .stack>*+*{margin-top:34px}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:34px 44px;border-top:2px solid var(--ink);padding-top:26px;margin-top:48px}
 .cmp>div:first-child{grid-column:1 / -1}
-.cmp .it{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--rule);font-size:16px;line-height:1.5}
+.cmp .it{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--rule);font-size:17.5px;line-height:1.45}
 .cmp .it:last-child{border-bottom:1px solid var(--rule)}
 .venn{position:relative;flex:0 0 26px;height:20px;margin-top:5px}
 .venn i{position:absolute;top:0;width:15px;height:15px;border-radius:50%}
@@ -134,40 +134,40 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .sec{padding:34px 0}
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px}
 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
-table.t{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.45}
+table.t{border-collapse:collapse;width:100%;font-size:17px;line-height:1.4}
 table.t th{font-family:var(--f-d);font-size:13.5px;text-align:left;padding:0 12px 8px 0;border-bottom:3px solid var(--ink);vertical-align:bottom}
 table.t td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
 .scroll{overflow-x:auto}
-.bignum{font-family:var(--f-d);font-stretch:118%;font-weight:800;font-size:clamp(34px,5vw,52px);line-height:1;color:var(--ust)}
+.bignum{font-family:var(--f-h);font-weight:700;font-variant-numeric:lining-nums;white-space:nowrap;font-size:clamp(40px,5.6vw,60px);line-height:1;color:var(--ust)}
 .bignum.e{color:var(--eut)}
 .rail{list-style:none;margin:0;padding:0;border-left:3px solid var(--ink)}
 .rail li{position:relative;padding:0 0 18px 24px}
 .rail li::before{content:"";position:absolute;left:-10px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--dc,var(--inkl));border:3px solid var(--bc,var(--paper))}
-.rail .when{font-family:var(--f-d);font-weight:800;font-size:15px}
-.rail p{margin:2px 0 0;font-size:15.5px;line-height:1.45}
+.rail .when{font-family:var(--f-d);font-weight:600;font-size:15px}
+.rail p{margin:2px 0 0;font-size:17px;line-height:1.4}
 .step{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
 .step label{display:block;cursor:pointer;padding:0 14px 0 0;position:relative}
 .step label .ic{display:flex;align-items:center;margin-bottom:14px}
 .step label .ic::after{content:"";flex:1;border-top:4px solid var(--ink);margin-left:10px}
 .step label:last-child .ic::after{margin-right:0}
-.step h3{font-size:19px;font-stretch:112%;margin-bottom:6px}
-.step .tag{font-family:var(--f-d);font-size:14px;font-weight:700;margin-bottom:6px}
-.step p{font-size:15.5px;line-height:1.5;margin:0}
+.step h3{font-size:21px;margin-bottom:6px}
+.step .tag{font-family:var(--f-d);font-size:14px;font-weight:600;margin-bottom:6px}
+.step p{font-size:17px;line-height:1.4;margin:0}
 .det{display:none}
-.chip{display:inline-block;font-family:var(--f-d);font-size:13px;font-weight:700;padding:3px 10px;border:2px solid var(--ink);margin:0 8px 8px 0}
+.chip{display:inline-block;font-family:var(--f-d);font-size:13px;font-weight:600;padding:3px 10px;border:2px solid var(--ink);margin:0 8px 8px 0}
 .rec{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:44px;border-top:3px solid var(--rc);padding-top:22px;margin-top:40px}
-.rec .kick{font-family:var(--f-d);font-weight:700;font-size:15px;color:var(--rt)}
+.rec .kick{font-family:var(--f-d);font-weight:600;font-size:15px;color:var(--rt)}
 .rec ol,.rec ul{padding-left:1.2em;margin:0 0 1em}
 .rec li{margin-bottom:.55em}
-.kv{display:grid;grid-template-columns:110px minmax(0,1fr);border-top:1px solid var(--rule);font-size:15.5px;line-height:1.45}
+.kv{display:grid;grid-template-columns:110px minmax(0,1fr);border-top:1px solid var(--rule);font-size:17px;line-height:1.4}
 .kv>div{padding:10px 8px 10px 0;border-bottom:1px solid var(--rule)}
-.kv>div:nth-child(odd){font-family:var(--f-d);font-weight:700;font-size:13.5px;padding-top:12px}
+.kv>div:nth-child(odd){font-family:var(--f-d);font-weight:600;font-size:13.5px;padding-top:12px}
 .obj{border-top:1px solid var(--rule);padding:22px 0}
 .obj:last-child{border-bottom:1px solid var(--rule)}
-.obj h3{font-size:clamp(19px,2.2vw,23px);margin-bottom:10px}
+.obj h3{font-size:clamp(21px,2.4vw,26px);margin-bottom:10px}
 .obj .a{border-left:4px solid var(--usl);padding-left:18px}
 .obj .o{font-family:var(--f-d);font-size:14.5px;color:var(--mute);margin-top:10px}
-.obj .o b{color:var(--ink)}
+.obj .o b{color:var(--ink);font-weight:600}
 footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-family:var(--f-d);font-size:14px;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
 .hide-sm{display:initial}
 
@@ -177,7 +177,7 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
  .cols>.margin{grid-column:1 / -1;margin-top:8px}
  .cmp{grid-template-columns:1fr;gap:30px}
  .three{grid-template-columns:1fr;gap:24px}
- .home-top{flex-direction:column}
+ .home-top{flex-direction:column;align-items:flex-start!important}
  .led-grid{flex-direction:column}
  .sidepanel{border-left:0;border-top:2px solid var(--ink);padding:22px 0 0}
 }
@@ -200,7 +200,7 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
  .nav{margin-left:0}
 }
 @media (max-width:520px){
- body{font-size:16.5px}
+ body{font-size:18px}
  .kv{grid-template-columns:1fr}
  .kv>div:nth-child(odd){border-bottom:0;padding-bottom:0}
  .fig{grid-template-columns:1fr;gap:22px 0}
@@ -216,25 +216,25 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
 
 <section class="home-top" style="display:flex;gap:56px;align-items:flex-start;padding:36px 0 0">
 <div style="flex:1 1 0;min-width:0;max-width:600px">
-<h1 style="margin-bottom:22px">Where U.S. and EU cybersecurity rules for trial technology line up, and where they don't</h1>
-<p class="lead">Trials now send data from wearables, apps and cloud systems across the Atlantic. This map shows which rule binds each step, and where the rules run out.</p>
+<h1 style="margin-bottom:22px">How U.S. and EU cybersecurity rules apply to clinical trial technology</h1>
+<p class="lead">Trials now send data from wearables, apps and cloud systems between the U.S. and the EU. This map shows which rule binds each step, and where the rules run out.</p>
 <div class="u guide" style="margin:0 0 16px"><div class="mute small" style="margin-bottom:6px">New here? Read in this order.</div>
-<div style="display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;font-size:16px"><span><b>1.</b> <a class="lk" href="problem.html">Policy problem</a></span><span class="ar" aria-hidden="true">→</span><span><b>2.</b> <a class="lk" href="pathway.html">Follow one participant's data</a></span><span class="ar" aria-hidden="true">→</span><span><b>3.</b> <a class="lk" href="recommendations.html">Two policy recommendations</a></span></div></div>
+<div style="display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;font-size:18px"><span><b>1.</b> <a class="lk" href="problem.html">Policy problem</a></span><span class="ar" aria-hidden="true">→</span><span><b>2.</b> <a class="lk" href="pathway.html">Follow one participant’s data</a></span><span class="ar" aria-hidden="true">→</span><span><b>3.</b> <a class="lk" href="recommendations.html">Two policy recommendations</a></span></div></div>
 <p class="u mute small" style="max-width:480px">Hover or tap any shape or symbol for the reason behind it. Select an instrument to read it in the panel.</p>
 </div>
-<div style="flex:1 1 0;min-width:0;max-width:640px;width:100%"><div class="fig" role="group" aria-label="Which rules bind a classified and an unclassified trial wearable"><div><div class="h">Classified as a medical device</div><div class="fz tip z-us" tabindex="0" style=""><div class="d">U.S. §524B binds</div><div class="s">Cyber plan and software list at FDA submission</div><span class="pop dn" style="--c:var(--usl)"><b>U.S. and classified</b>§524B requires a cybersecurity plan and a software bill of materials when a connected device is submitted to FDA. Effective March 29, 2023.<i>FD&amp;C Act §524B</i></span></div><div class="fz tip z-ov" tabindex="0" style=""><div class="d">Both sides bind</div><div class="s">Same idea, two separate laws</div><span class="pop dn" style="--c:var(--inkl)"><b>Where the two overprint</b>For a device classified as a medical device, a binding cybersecurity requirement exists on each side of the Atlantic. The laws differ in form and reach the same result for a classified device.<i>§524B and MDR Annex I</i></span></div><div class="fz tip z-eu" tabindex="0" style=""><div class="d">EU MDR Annex I binds</div><div class="s">General safety and performance duties</div><span class="pop dn" style="--c:var(--eul)"><b>EU and classified</b>Medical devices placed on the EU market must meet Annex I, which includes information security duties for software.<i>Regulation (EU) 2017/745, Annex I</i></span></div><div class="fnote" style="margin-top:0">Binding on both sides</div></div><div><div class="h">Not classified, like most trial wearables</div><div class="fz tip z-nus" tabindex="0" style=""><div class="d">U.S.: no binding security rule</div><div class="s">§524B needs an FDA submission</div><span class="pop dn rt" style="--c:var(--usl)"><b>U.S. and unclassified</b>A consumer-grade wearable used in a trial and never submitted to FDA is outside §524B. FDA's guidance on trial technology is not binding. HIPAA often does not apply when a sponsor collects data directly. The FTC breach rule may require notice after a breach but sets no security requirements.<i>§524B; FDA guidance; HIPAA Security Rule</i></span></div><div class="fz tip z-neu hatch" tabindex="0" style="min-height:78px;margin-top:0"><div class="d">EU: unsettled</div><div class="s">Cyber Resilience Act may reach it</div><span class="pop dn rt" style="--c:var(--eul)"><b>EU and unclassified</b>The Cyber Resilience Act could reach consumer-type health wearables, but it never mentions clinical trials. Whether a tool supplied only inside a trial counts as made available on the market is unsettled.<i>Regulation (EU) 2024/2847, Arts. 2 and 3(22)</i></span></div><div class="fnote dash" style="margin-top:0">No settled binding rule on either side</div></div></div></div>
+<div style="flex:1 1 0;min-width:0;max-width:640px;width:100%"><div class="fig" role="group" aria-label="Which rules bind a classified and an unclassified trial wearable"><div><div class="h">Classified as a medical device</div><div class="fz tip z-us" tabindex="0" style=""><div class="d">U.S. §524B binds</div><div class="s">Cyber plan and software list at FDA submission</div><span class="pop dn" style="--c:var(--usl)"><b>U.S. and classified</b>§524B requires a cybersecurity plan and a software bill of materials when a connected device is submitted to FDA. Effective March 29, 2023.<i>FD&amp;C Act §524B</i></span></div><div class="fz tip z-ov" tabindex="0" style=""><div class="d">Both sides bind</div><div class="s">Separate laws with similar requirements</div><span class="pop dn" style="--c:var(--inkl)"><b>Where the two overprint</b>For a device classified as a medical device, a binding cybersecurity requirement exists in both the U.S. and the EU.<i>§524B and MDR Annex I</i></span></div><div class="fz tip z-eu" tabindex="0" style=""><div class="d">EU MDR Annex I binds</div><div class="s">General safety and performance duties</div><span class="pop dn" style="--c:var(--eul)"><b>EU and classified</b>Medical devices placed on the EU market must meet Annex I, which includes information security duties for software.<i>Regulation (EU) 2017/745, Annex I</i></span></div><div class="fnote" style="margin-top:0">Binding on both sides</div></div><div><div class="h">Not classified, like most trial wearables</div><div class="fz tip z-nus" tabindex="0" style=""><div class="d">U.S.: no binding security rule</div><div class="s">§524B needs an FDA submission</div><span class="pop dn rt" style="--c:var(--usl)"><b>U.S. and unclassified</b>A consumer-grade wearable used in a trial and never submitted to FDA is outside §524B. FDA’s guidance on trial technology is not binding. HIPAA often does not apply when a sponsor collects data directly. The FTC breach rule may require notice after a breach but sets no security requirements.<i>§524B; FDA guidance; HIPAA Security Rule</i></span></div><div class="fz tip z-neu hatch" tabindex="0" style="min-height:78px;margin-top:0"><div class="d">EU: unsettled</div><div class="s">Cyber Resilience Act may reach it</div><span class="pop dn rt" style="--c:var(--eul)"><b>EU and unclassified</b>The Cyber Resilience Act could reach consumer-type health wearables, but it never mentions clinical trials. Whether a tool supplied only inside a trial counts as made available on the market is unsettled.<i>Regulation (EU) 2024/2847, Arts. 2 and 3(22)</i></span></div><div class="fnote dash" style="margin-top:0">No settled binding rule on either side</div></div></div></div>
 </section>
 
 <section class="sec" style="padding:26px 0 0">
 <div class="two" style="gap:44px;border-top:2px solid var(--ink);padding-top:26px">
-<div><h2 style="font-size:22px;margin-bottom:10px">The policy problem</h2>
-<p style="font-size:18px">A wearable or app used in a decentralized trial can fall outside every binding device cybersecurity rule on both sides of the Atlantic. The systems that hold its data face binding rules that name no security standard, and the regulators who inspect trials have no shared way to compare what they find.</p></div>
-<div><h2 style="font-size:22px;margin-bottom:10px">Two policy recommendations</h2>
-<p style="font-size:18px">Extend IMDRF's device cybersecurity guidance to trial technology, and add cybersecurity findings to the GCP inspection information FDA already shares with EU and other regulators. <a class="lk u" href="recommendations.html" style="font-size:15px">Read the policy recommendations</a></p></div>
+<div><h2 style="font-size:26px;margin-bottom:10px">The policy problem</h2>
+<p style="font-size:20px">A wearable or app used in a decentralized trial can fall outside every binding device cybersecurity rule in the U.S. and the EU. The systems that hold its data face binding rules that name no security standard, and the regulators who inspect trials have no harmonized way to compare what they find.</p></div>
+<div><h2 style="font-size:26px;margin-bottom:10px">Two policy recommendations</h2>
+<p style="font-size:20px">Extend IMDRF’s device cybersecurity guidance to trial technology, and add cybersecurity findings to the GCP inspection information FDA already shares with EU and other regulators. <a class="lk u" href="recommendations.html" style="font-size:15px">Read the policy recommendations</a></p></div>
 </div></section>
 
 <section class="sec" style="margin-top:30px;border-top:2px solid var(--ink);padding:24px 0 0">
-<h2 style="font-size:22px;margin-bottom:12px">How to read the symbols</h2>
+<h2 style="font-size:26px;margin-bottom:12px">How to read the symbols</h2>
 <div class="u" style="font-size:14.5px;display:flex;flex-wrap:wrap;gap:12px 32px">
 <div style="display:flex;gap:11px;align-items:center"><span class="glyph g-cov" style="--gc:var(--inkl)" aria-hidden="true"></span><span>The instrument covers it</span></div>
 <div style="display:flex;gap:11px;align-items:center"><span class="glyph g-par" style="--gc:var(--inkl)" aria-hidden="true"></span><span>Partly, conditionally, or unsettled</span></div>
@@ -262,7 +262,7 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
 <div class="ch tip" tabindex="0" style="cursor:help"><span class="term">Reaches an unclassified trial wearable?</span><span class="pop dn" style="--c:var(--inkl)"><b>Reaches an unclassified trial wearable?</b>A consumer-grade wrist sensor used in a trial and never cleared as a medical device. Most trial wearables are not classified as devices.</span></div>
 <div class="ch tip" tabindex="0" style="cursor:help"><span class="term">Covers cross-border transfer?</span><span class="pop dn rt" style="--c:var(--inkl)"><b>Covers cross-border transfer?</b>Does the instrument address sending trial data between the U.S. and the EU?</span></div>
 </div>
-<div class="grp grp-us"><div class="gh" style="border-top:3px solid var(--usl)"><span class="d" style="font-size:16px;color:var(--ust)">United States</span><span class="u mute" style="font-size:13.5px">Law and guidance from the U.S.</span></div><div class="row row1">
+<div class="grp grp-us"><div class="gh" style="border-top:3px solid var(--usl)"><span class="u" style="font-size:16px;font-weight:600;color:var(--ust)">United States</span><span class="u mute" style="font-size:13.5px">Law and guidance from the U.S.</span></div><div class="row row1">
 <label for="r1" class="nm tip" tabindex="0"><span class="bar" style="background:var(--usl)"></span>
 <span><span class="t" style="color:var(--ust)">FD&amp;C Act §524B</span><span class="s">Binding law. Effective Mar 2023.</span></span>
 <span class="pop dn" style="--c:var(--usl)"><b>FD&amp;C Act §524B</b>Select to read this instrument in the panel.<i>Source: Federal Food, Drug, and Cosmetic Act §524B, added by the Food and Drug Omnibus Reform Act of 2022, §3305 (enacted Decemb</i></span></label>
@@ -271,7 +271,7 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
 <label for="r2" class="nm tip" tabindex="0"><span class="bar" style="background:var(--usl)"></span>
 <span><span class="t" style="color:var(--ust)">FDA guidance on DCT technology</span><span class="s">Guidance. Not binding.</span></span>
 <span class="pop dn" style="--c:var(--usl)"><b>FDA guidance on DCT technology</b>Select to read this instrument in the panel.<i>Source: FDA, </i></span></label>
-<div class="cell tip" tabindex="0" data-l="Binding?"><span class="glyph g-par" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Partly, conditionally, or unsettled. </span>Guidance only</span><span class="pop dn" style="--c:var(--usl)"><b>FDA guidance on DCT technology: binding?</b>FDA guidance describes the agency's current thinking. It does not create legal duties.</span></div><div class="cell tip" tabindex="0" data-l="Reaches an unclassified trial wearable?"><span class="glyph g-par" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Partly, conditionally, or unsettled. </span>Yes, but non-binding</span><span class="pop dn" style="--c:var(--usl)"><b>FDA guidance on DCT technology: unclassified wearable</b>The Q&amp;A applies to digital health technologies in a trial whether the sponsor provides them or participants use their own. Sponsors are not legally required to follow it.</span></div><div class="cell tip" tabindex="0" data-l="Covers cross-border transfer?"><span class="glyph g-gap" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:600"><span class="vh-sr" style="position:absolute;left:-9999px">A gap. </span>Not addressed</span><span class="pop dn" style="--c:var(--usl)"><b>FDA guidance on DCT technology: cross-border transfer</b>In the sections reviewed, neither guidance addresses sending trial data between the U.S. and the EU.</span></div>
+<div class="cell tip" tabindex="0" data-l="Binding?"><span class="glyph g-par" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Partly, conditionally, or unsettled. </span>Guidance only</span><span class="pop dn" style="--c:var(--usl)"><b>FDA guidance on DCT technology: binding?</b>FDA guidance describes the agency’s current thinking. It does not create legal duties.</span></div><div class="cell tip" tabindex="0" data-l="Reaches an unclassified trial wearable?"><span class="glyph g-par" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Partly, conditionally, or unsettled. </span>Yes, but non-binding</span><span class="pop dn" style="--c:var(--usl)"><b>FDA guidance on DCT technology: unclassified wearable</b>The Q&amp;A applies to digital health technologies in a trial whether the sponsor provides them or participants use their own. Sponsors are not legally required to follow it.</span></div><div class="cell tip" tabindex="0" data-l="Covers cross-border transfer?"><span class="glyph g-gap" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:600"><span class="vh-sr" style="position:absolute;left:-9999px">A gap. </span>Not addressed</span><span class="pop dn" style="--c:var(--usl)"><b>FDA guidance on DCT technology: cross-border transfer</b>In the sections reviewed, neither guidance addresses sending trial data between the U.S. and the EU.</span></div>
 </div><div class="row row3">
 <label for="r3" class="nm tip" tabindex="0"><span class="bar" style="background:var(--usl)"></span>
 <span><span class="t" style="color:var(--ust)">21 CFR Part 11</span><span class="s">Binding rule. In force.</span></span>
@@ -281,13 +281,13 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
 <label for="r4" class="nm tip" tabindex="0"><span class="bar" style="background:var(--usl)"></span>
 <span><span class="t" style="color:var(--ust)">HIPAA Security Rule</span><span class="s">Binding rule. In force.</span></span>
 <span class="pop dn" style="--c:var(--usl)"><b>HIPAA Security Rule</b>Select to read this instrument in the panel.<i>Source: 45 CFR §160.103 (definitions) and 45 CFR Part 164, Subpart C (Title 45, 10-1-25 edition).</i></span></label>
-<div class="cell tip" tabindex="0" data-l="Binding?"><span class="glyph g-cov" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Covers it. </span>Yes, for covered entities</span><span class="pop dn" style="--c:var(--usl)"><b>HIPAA Security Rule: binding?</b>Binds covered entities such as health plans and providers that transmit health information electronically in covered transactions, and business associates where the rule provides.</span></div><div class="cell tip" tabindex="0" data-l="Reaches an unclassified trial wearable?"><span class="glyph g-par" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Partly, conditionally, or unsettled. </span>Often not</span><span class="pop dn" style="--c:var(--usl)"><b>HIPAA Security Rule: unclassified wearable</b>A sponsor is usually not a covered entity, so data it collects directly from participants often sits outside the rule. This is the author's reading of §160.103.</span></div><div class="cell tip" tabindex="0" data-l="Covers cross-border transfer?"><span class="glyph g-out" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Outside scope. </span>Outside scope</span><span class="pop dn" style="--c:var(--usl)"><b>HIPAA Security Rule: cross-border transfer</b>The Security Rule sets safeguards for electronic health information. It has no transfer mechanism.</span></div>
+<div class="cell tip" tabindex="0" data-l="Binding?"><span class="glyph g-cov" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Covers it. </span>Yes, for covered entities</span><span class="pop dn" style="--c:var(--usl)"><b>HIPAA Security Rule: binding?</b>Binds covered entities such as health plans and providers that transmit health information electronically in covered transactions, and business associates where the rule provides.</span></div><div class="cell tip" tabindex="0" data-l="Reaches an unclassified trial wearable?"><span class="glyph g-par" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Partly, conditionally, or unsettled. </span>Often not</span><span class="pop dn" style="--c:var(--usl)"><b>HIPAA Security Rule: unclassified wearable</b>A sponsor is usually not a covered entity, so data it collects directly from participants often sits outside the rule. This is the author’s reading of §160.103.</span></div><div class="cell tip" tabindex="0" data-l="Covers cross-border transfer?"><span class="glyph g-out" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Outside scope. </span>Outside scope</span><span class="pop dn" style="--c:var(--usl)"><b>HIPAA Security Rule: cross-border transfer</b>The Security Rule sets safeguards for electronic health information. It has no transfer mechanism.</span></div>
 </div><div class="row row11">
 <label for="r11" class="nm tip" tabindex="0"><span class="bar" style="background:var(--usl)"></span>
 <span><span class="t" style="color:var(--ust)">FTC Health Breach Notification Rule</span><span class="s">Binding rule. Amended 2024.</span></span>
 <span class="pop dn" style="--c:var(--usl)"><b>FTC Health Breach Notification Rule</b>Select to read this instrument in the panel.<i>Source: 16 CFR Part 318 (eCFR), §§318.1–318.7; FTC, Health Breach Notification Rule, final rule, Federal Register, May 30, 2024 </i></span></label>
-<div class="cell tip" tabindex="0" data-l="Binding?"><span class="glyph g-cov" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Covers it. </span>Yes, for PHR vendors</span><span class="pop dn" style="--c:var(--usl)"><b>FTC Health Breach Notification Rule: binding?</b>A binding FTC rule for vendors of personal health records not covered by HIPAA. Violations carry civil penalties (16 CFR 318.7).</span></div><div class="cell tip" tabindex="0" data-l="Reaches an unclassified trial wearable?"><span class="glyph g-par" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Partly, conditionally, or unsettled. </span>Unsettled; notice only</span><span class="pop dn" style="--c:var(--usl)"><b>FTC Health Breach Notification Rule: unclassified wearable</b>A participant's own app may count as a personal health record. A sponsor-supplied trial tool may not (author's reading). Where it applies, the rule requires notice after a breach and sets no security requirements.</span></div><div class="cell tip" tabindex="0" data-l="Covers cross-border transfer?"><span class="glyph g-out" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Outside scope. </span>Outside scope</span><span class="pop dn" style="--c:var(--usl)"><b>FTC Health Breach Notification Rule: cross-border transfer</b>It applies to vendors that hold information of U.S. citizens or residents. It does not govern transfers.</span></div>
-</div></div><div class="grp grp-eu"><div class="gh" style="border-top:3px solid var(--eul)"><span class="d" style="font-size:16px;color:var(--eut)">European Union</span><span class="u mute" style="font-size:13.5px">Regulations from the EU</span></div><div class="row row5">
+<div class="cell tip" tabindex="0" data-l="Binding?"><span class="glyph g-cov" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Covers it. </span>Yes, for PHR vendors</span><span class="pop dn" style="--c:var(--usl)"><b>FTC Health Breach Notification Rule: binding?</b>A binding FTC rule for vendors of personal health records not covered by HIPAA. Violations carry civil penalties (16 CFR 318.7).</span></div><div class="cell tip" tabindex="0" data-l="Reaches an unclassified trial wearable?"><span class="glyph g-par" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Partly, conditionally, or unsettled. </span>Unsettled; notice only</span><span class="pop dn" style="--c:var(--usl)"><b>FTC Health Breach Notification Rule: unclassified wearable</b>A participant’s own app may count as a personal health record. A sponsor-supplied trial tool may not (author’s reading). Where it applies, the rule requires notice after a breach and sets no security requirements.</span></div><div class="cell tip" tabindex="0" data-l="Covers cross-border transfer?"><span class="glyph g-out" style="--gc:var(--usl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Outside scope. </span>Outside scope</span><span class="pop dn" style="--c:var(--usl)"><b>FTC Health Breach Notification Rule: cross-border transfer</b>It applies to vendors that hold information of U.S. citizens or residents. It does not govern transfers.</span></div>
+</div></div><div class="grp grp-eu"><div class="gh" style="border-top:3px solid var(--eul)"><span class="u" style="font-size:16px;font-weight:600;color:var(--eut)">European Union</span><span class="u mute" style="font-size:13.5px">Regulations from the EU</span></div><div class="row row5">
 <label for="r5" class="nm tip" tabindex="0"><span class="bar" style="background:var(--eul)"></span>
 <span><span class="t" style="color:var(--eut)">MDR Annex I</span><span class="s">Binding law. In force.</span></span>
 <span class="pop dn" style="--c:var(--eul)"><b>MDR Annex I</b>Select to read this instrument in the panel.<i>Source: Regulation (EU) 2017/745, Article 2(1) and Annex I, sections 17.2 and 17.4.</i></span></label>
@@ -307,7 +307,7 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
 <span><span class="t" style="color:var(--eut)">European Health Data Space</span><span class="s">Binding law. Mar 2027; reuse 2029.</span></span>
 <span class="pop dn" style="--c:var(--eul)"><b>European Health Data Space</b>Select to read this instrument in the panel.<i>Source: Regulation (EU) 2025/327, Articles 47, 51, 73, 88 to 91 and 105.</i></span></label>
 <div class="cell tip" tabindex="0" data-l="Binding?"><span class="glyph g-cov" style="--gc:var(--eul)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Covers it. </span>Yes</span><span class="pop dn" style="--c:var(--eul)"><b>European Health Data Space: binding?</b>A binding Regulation. It applies from March 26, 2027.</span></div><div class="cell tip" tabindex="0" data-l="Reaches an unclassified trial wearable?"><span class="glyph g-par" style="--gc:var(--eul)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Partly, conditionally, or unsettled. </span>If it claims EHR interoperability</span><span class="pop dn" style="--c:var(--eul)"><b>European Health Data Space: unclassified wearable</b>A wellness application falls under the Article 47 label only if its maker claims interoperability with EHR systems.</span></div><div class="cell tip" tabindex="0" data-l="Covers cross-border transfer?"><span class="glyph g-cov" style="--gc:var(--eul)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Covers it. </span>Yes</span><span class="pop dn" style="--c:var(--eul)"><b>European Health Data Space: cross-border transfer</b>Articles 88 to 91 set rules for third-country access to health data. Article 90 sends personal-data transfers to GDPR Chapter V.</span></div>
-</div></div><div class="grp grp-in"><div class="gh" style="border-top:3px solid var(--inkl)"><span class="d" style="font-size:16px;color:var(--inkt)">International</span><span class="u mute" style="font-size:13.5px">Guidance both sides take part in</span></div><div class="row row9">
+</div></div><div class="grp grp-in"><div class="gh" style="border-top:3px solid var(--inkl)"><span class="u" style="font-size:16px;font-weight:600;color:var(--inkt)">International</span><span class="u mute" style="font-size:13.5px">Guidance both sides take part in</span></div><div class="row row9">
 <label for="r9" class="nm tip" tabindex="0"><span class="bar" style="background:var(--inkl)"></span>
 <span><span class="t" style="color:var(--inkt)">IMDRF N60, N70, N73</span><span class="s">Guidance. Final 2020, 2023.</span></span>
 <span class="pop dn" style="--c:var(--inkl)"><b>IMDRF N60, N70, N73</b>Select to read this instrument in the panel.<i>Source: IMDRF/CYBER WG/N60FINAL:2020, </i></span></label>
@@ -318,129 +318,129 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
 <span class="pop dn" style="--c:var(--inkl)"><b>ICH E6(R3)</b>Select to read this instrument in the panel.<i>Source: ICH, </i></span></label>
 <div class="cell tip" tabindex="0" data-l="Binding?"><span class="glyph g-par" style="--gc:var(--inkl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Partly, conditionally, or unsettled. </span>Guideline</span><span class="pop dn" style="--c:var(--inkl)"><b>ICH E6(R3): binding?</b>An ICH guideline recommended for adoption by regulators. It is not itself a statute.</span></div><div class="cell tip" tabindex="0" data-l="Reaches an unclassified trial wearable?"><span class="glyph g-par" style="--gc:var(--inkl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Partly, conditionally, or unsettled. </span>Principles only</span><span class="pop dn" style="--c:var(--inkl)"><b>ICH E6(R3): unclassified wearable</b>Section 4.3.3 lists security controls to consider. It names no technical security standard.</span></div><div class="cell tip" tabindex="0" data-l="Covers cross-border transfer?"><span class="glyph g-out" style="--gc:var(--inkl)" aria-hidden="true"></span><span class="txt" style="font-weight:500"><span class="vh-sr" style="position:absolute;left:-9999px">Outside scope. </span>Outside scope</span><span class="pop dn" style="--c:var(--inkl)"><b>ICH E6(R3): cross-border transfer</b>E6(R3) is about how trials are run. Legal transfer rules sit in privacy law.</span></div>
 </div></div>
-<div class="srcnote" style="margin-top:18px;border-top:1px solid var(--rule);padding-top:10px">Each value comes from the instrument's own text or from an FDA or EU guidance on it. The full statute pages show what was read. <a class="lk" href="about.html">How the values were set</a></div>
+<div class="srcnote" style="margin-top:18px;border-top:1px solid var(--rule);padding-top:10px">Each value comes from the instrument’s own text or from an FDA or EU guidance on it. The full statute pages show what was read. <a class="lk" href="about.html">How the values were set</a></div>
 </div>
 <aside class="sidepanel panel" aria-label="Selected instrument" style="flex:0 0 340px;min-width:0;position:sticky;top:20px">
 <div class="u mute small" style="margin-bottom:12px">Selected on the left</div>
 <div class="pn pn1">
-<div class="d" style="font-size:28px;color:var(--ust);font-stretch:112%">FD&amp;C Act §524B</div>
+<div class="d" style="font-size:31px;color:var(--ust)">FD&amp;C Act §524B</div>
 <div class="u mute" style="font-size:14px;margin:6px 0 18px">Binding law. Effective Mar 2023.</div>
 <div class="u" style="font-size:14px;font-weight:700;margin-bottom:4px">In plain language</div>
-<p style="margin:0 0 20px;font-size:17px;line-height:1.6">If a medical device runs software, can connect to the internet and has features that could be vulnerable to attack, its maker has to include cybersecurity information when it asks FDA to clear or approve the device. It applies to devices that go through FDA's premarket review.</p>
+<p style="margin:0 0 20px;font-size:19px;line-height:1.5">If a medical device runs software, can connect to the internet and has features that could be vulnerable to attack, its maker has to include cybersecurity information when it asks FDA to clear or approve the device. It applies to devices that go through FDA’s premarket review.</p>
 <div style="display:flex;gap:12px;margin-bottom:14px"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:15.5px;line-height:1.5">MDR Annex I. Both sides bind classified devices.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:17px;line-height:1.4">MDR Annex I. Both sides bind classified devices.</div></div></div>
 <div style="display:flex;gap:12px;margin-bottom:20px"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:15.5px;line-height:1.5">Cyber Resilience Act. Its reach to unclassified trial wearables is unsettled; §524B has no such reach.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:17px;line-height:1.4">Cyber Resilience Act. Its reach to unclassified trial wearables is unsettled; §524B has no such reach.</div></div></div>
 <div class="srcnote" style="border-top:1px solid var(--rule);padding-top:10px">Source: Federal Food, Drug, and Cosmetic Act §524B, added by the Food and Drug Omnibus Reform Act of 2022, §3305 (enacted December 29, 2022).</div>
 <a class="lk u" href="statutes/524b.html" style="display:inline-block;margin-top:14px;font-size:15px">Open the full statute page</a>
 </div><div class="pn pn2">
-<div class="d" style="font-size:28px;color:var(--ust);font-stretch:112%">FDA guidance on DCT technology</div>
+<div class="d" style="font-size:31px;color:var(--ust)">FDA guidance on DCT technology</div>
 <div class="u mute" style="font-size:14px;margin:6px 0 18px">Guidance. Not binding.</div>
 <div class="u" style="font-size:14px;font-weight:700;margin-bottom:4px">In plain language</div>
-<p style="margin:0 0 20px;font-size:17px;line-height:1.6">Two FDA guidances tell sponsors how to handle technology in decentralized trials. One covers decentralized trials as a whole. The other answers questions about electronic systems, records and signatures. They set out what FDA recommends. They do not create legal duties.</p>
+<p style="margin:0 0 20px;font-size:19px;line-height:1.5">Two FDA guidances tell sponsors how to handle technology in decentralized trials. One covers decentralized trials as a whole. The other answers questions about electronic systems, records and signatures. They set out what FDA recommends. They do not create legal duties.</p>
 <div style="display:flex;gap:12px;margin-bottom:14px"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:15.5px;line-height:1.5">IMDRF guidance. Both are soft law.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:17px;line-height:1.4">IMDRF guidance. Both are soft law.</div></div></div>
 <div style="display:flex;gap:12px;margin-bottom:20px"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:15.5px;line-height:1.5">Cyber Resilience Act. The EU instrument binds if it reaches the product, and this guidance is nonbinding.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:17px;line-height:1.4">Cyber Resilience Act. The EU instrument binds if it reaches the product, and this guidance is nonbinding.</div></div></div>
 <div class="srcnote" style="border-top:1px solid var(--rule);padding-top:10px">Source: FDA, <em>Conducting Clinical Trials With Decentralized Elements: Guidance for Industry, Investigators, and Other Interested Parties</em> (September 2024), sections on digital health technologies and electronic systems.</div>
 <a class="lk u" href="statutes/fda-guidance.html" style="display:inline-block;margin-top:14px;font-size:15px">Open the full statute page</a>
 </div><div class="pn pn3">
-<div class="d" style="font-size:28px;color:var(--ust);font-stretch:112%">21 CFR Part 11</div>
+<div class="d" style="font-size:31px;color:var(--ust)">21 CFR Part 11</div>
 <div class="u mute" style="font-size:14px;margin:6px 0 18px">Binding rule. In force.</div>
 <div class="u" style="font-size:14px;font-weight:700;margin-bottom:4px">In plain language</div>
-<p style="margin:0 0 20px;font-size:17px;line-height:1.6">Part 11 sets the conditions under which FDA treats electronic records and electronic signatures as trustworthy and equivalent to paper. It covers records that FDA's rules require and records submitted to FDA.</p>
+<p style="margin:0 0 20px;font-size:19px;line-height:1.5">Part 11 sets the conditions under which FDA treats electronic records and electronic signatures as trustworthy and equivalent to paper. It covers records that FDA’s rules require and records submitted to FDA.</p>
 <div style="display:flex;gap:12px;margin-bottom:14px"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:15.5px;line-height:1.5">ICH E6(R3). Both expect trustworthy electronic data.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:17px;line-height:1.4">ICH E6(R3). Both expect trustworthy electronic data.</div></div></div>
 <div style="display:flex;gap:12px;margin-bottom:20px"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:15.5px;line-height:1.5">GDPR. It covers any personal data, including data outside FDA-required records.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:17px;line-height:1.4">GDPR. It covers any personal data, including data outside FDA-required records.</div></div></div>
 <div class="srcnote" style="border-top:1px solid var(--rule);padding-top:10px">Source: 21 CFR Part 11, <em>Electronic Records; Electronic Signatures</em> (eCFR, current as of October 13, 2026), §§11.1, 11.10 and 11.30.</div>
 <a class="lk u" href="statutes/part-11.html" style="display:inline-block;margin-top:14px;font-size:15px">Open the full statute page</a>
 </div><div class="pn pn4">
-<div class="d" style="font-size:28px;color:var(--ust);font-stretch:112%">HIPAA Security Rule</div>
+<div class="d" style="font-size:31px;color:var(--ust)">HIPAA Security Rule</div>
 <div class="u mute" style="font-size:14px;margin:6px 0 18px">Binding rule. In force.</div>
 <div class="u" style="font-size:14px;font-weight:700;margin-bottom:4px">In plain language</div>
-<p style="margin:0 0 20px;font-size:17px;line-height:1.6">The Security Rule requires safeguards for electronic protected health information held by covered entities and their business associates. It tells each organization what its security program must achieve and leaves the choice of tools to the organization.</p>
+<p style="margin:0 0 20px;font-size:19px;line-height:1.5">The Security Rule requires safeguards for electronic protected health information held by covered entities and their business associates. It tells each organization what its security program must achieve and leaves the choice of tools to the organization.</p>
 <div style="display:flex;gap:12px;margin-bottom:14px"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:15.5px;line-height:1.5">GDPR Article 32. Both require appropriate security for personal data.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:17px;line-height:1.4">GDPR Article 32. Both require appropriate security for personal data.</div></div></div>
 <div style="display:flex;gap:12px;margin-bottom:20px"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:15.5px;line-height:1.5">GDPR. It reaches any data controller, which is wider than HIPAA's covered entities and business associates.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:17px;line-height:1.4">GDPR. It reaches any data controller, which is wider than HIPAA’s covered entities and business associates.</div></div></div>
 <div class="srcnote" style="border-top:1px solid var(--rule);padding-top:10px">Source: 45 CFR §160.103 (definitions) and 45 CFR Part 164, Subpart C (Title 45, 10-1-25 edition).</div>
 <a class="lk u" href="statutes/hipaa.html" style="display:inline-block;margin-top:14px;font-size:15px">Open the full statute page</a>
 </div><div class="pn pn11">
-<div class="d" style="font-size:28px;color:var(--ust);font-stretch:112%">FTC Health Breach Notification Rule</div>
+<div class="d" style="font-size:31px;color:var(--ust)">FTC Health Breach Notification Rule</div>
 <div class="u mute" style="font-size:14px;margin:6px 0 18px">Binding rule. Amended 2024.</div>
 <div class="u" style="font-size:14px;font-weight:700;margin-bottom:4px">In plain language</div>
-<p style="margin:0 0 20px;font-size:17px;line-height:1.6">Health apps and similar technologies that HIPAA does not cover must notify users, the FTC and sometimes the media within 60 days of a breach of identifiable health information. The FTC amended the rule in 2024 to make clear that it covers health apps.</p>
+<p style="margin:0 0 20px;font-size:19px;line-height:1.5">Health apps and similar technologies that HIPAA does not cover must notify users, the FTC and sometimes the media within 60 days of a breach of identifiable health information. The FTC amended the rule in 2024 to make clear that it covers health apps.</p>
 <div style="display:flex;gap:12px;margin-bottom:14px"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:15.5px;line-height:1.5">HIPAA. Breach notice for health data outside HIPAA.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:17px;line-height:1.4">HIPAA. Breach notice for health data outside HIPAA.</div></div></div>
 <div style="display:flex;gap:12px;margin-bottom:20px"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:15.5px;line-height:1.5">GDPR. Articles 32 and 33 require security and notice; this rule requires notice only.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:17px;line-height:1.4">GDPR. Articles 32 and 33 require security and notice; this rule requires notice only.</div></div></div>
 <div class="srcnote" style="border-top:1px solid var(--rule);padding-top:10px">Source: 16 CFR Part 318 (eCFR), §§318.1–318.7; FTC, Health Breach Notification Rule, final rule, Federal Register, May 30, 2024 (FR Doc. 2024-10855).</div>
 <a class="lk u" href="statutes/ftc-hbnr.html" style="display:inline-block;margin-top:14px;font-size:15px">Open the full statute page</a>
 </div><div class="pn pn5">
-<div class="d" style="font-size:28px;color:var(--eut);font-stretch:112%">MDR Annex I</div>
+<div class="d" style="font-size:31px;color:var(--eut)">MDR Annex I</div>
 <div class="u mute" style="font-size:14px;margin:6px 0 18px">Binding law. In force.</div>
 <div class="u" style="font-size:14px;font-weight:700;margin-bottom:4px">In plain language</div>
-<p style="margin:0 0 20px;font-size:17px;line-height:1.6">Medical devices sold in the EU must meet general safety and performance requirements. For devices with software, those requirements include information security.</p>
+<p style="margin:0 0 20px;font-size:19px;line-height:1.5">Medical devices sold in the EU must meet general safety and performance requirements. For devices with software, those requirements include information security.</p>
 <div style="display:flex;gap:12px;margin-bottom:14px"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:15.5px;line-height:1.5">FD&amp;C Act §524B. Both sides bind classified devices.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:17px;line-height:1.4">FD&amp;C Act §524B. Both sides bind classified devices.</div></div></div>
 <div style="display:flex;gap:12px;margin-bottom:20px"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:15.5px;line-height:1.5">Cyber Resilience Act. That law may reach products the MDR does not; it excludes products the MDR covers.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:17px;line-height:1.4">Cyber Resilience Act. That law may reach products the MDR does not; it excludes products the MDR covers.</div></div></div>
 <div class="srcnote" style="border-top:1px solid var(--rule);padding-top:10px">Source: Regulation (EU) 2017/745, Article 2(1) and Annex I, sections 17.2 and 17.4.</div>
 <a class="lk u" href="statutes/mdr.html" style="display:inline-block;margin-top:14px;font-size:15px">Open the full statute page</a>
 </div><div class="pn pn6">
-<div class="d" style="font-size:28px;color:var(--eut);font-stretch:112%">Cyber Resilience Act</div>
+<div class="d" style="font-size:31px;color:var(--eut)">Cyber Resilience Act</div>
 <div class="u mute" style="font-size:14px;margin:6px 0 18px">Binding law. Main duties Dec 2027.</div>
 <div class="u" style="font-size:14px;font-weight:700;margin-bottom:4px">In plain language</div>
-<p style="margin:0 0 20px;font-size:17px;line-height:1.6">Makers of connected products sold in the EU must build in security, handle vulnerabilities and report actively exploited ones. Whether that includes a wearable that a sponsor hands to trial participants is not settled.</p>
+<p style="margin:0 0 20px;font-size:19px;line-height:1.5">Makers of connected products sold in the EU must build in security, handle vulnerabilities and report actively exploited ones. Whether that includes a wearable that a sponsor hands to trial participants is not settled.</p>
 <div style="display:flex;gap:12px;margin-bottom:14px"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:15.5px;line-height:1.5">MDR Annex I. Products the MDR covers are excluded, so the two do not overlap.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:17px;line-height:1.4">MDR Annex I. Products the MDR covers are excluded, so the two do not overlap.</div></div></div>
 <div style="display:flex;gap:12px;margin-bottom:20px"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:15.5px;line-height:1.5">FD&amp;C Act §524B. The U.S. rule applies once a device is submitted to FDA. The Act applies to products made available on the market.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:17px;line-height:1.4">FD&amp;C Act §524B. The U.S. rule applies once a device is submitted to FDA. The Act applies to products made available on the market.</div></div></div>
 <div class="srcnote" style="border-top:1px solid var(--rule);padding-top:10px">Source: Regulation (EU) 2024/2847, Articles 2, 3(22), 14 and 71; Annex I; recitals 13 and 25.</div>
 <a class="lk u" href="statutes/cra.html" style="display:inline-block;margin-top:14px;font-size:15px">Open the full statute page</a>
 </div><div class="pn pn7">
-<div class="d" style="font-size:28px;color:var(--eut);font-stretch:112%">GDPR (Arts. 32–33, Ch. V)</div>
+<div class="d" style="font-size:31px;color:var(--eut)">GDPR (Arts. 32–33, Ch. V)</div>
 <div class="u mute" style="font-size:14px;margin:6px 0 18px">Binding law. In force.</div>
 <div class="u" style="font-size:14px;font-weight:700;margin-bottom:4px">In plain language</div>
-<p style="margin:0 0 20px;font-size:17px;line-height:1.6">GDPR protects the personal data of people in the EU. It requires appropriate security for that data, and it sets the conditions for sending personal data outside the EU.</p>
+<p style="margin:0 0 20px;font-size:19px;line-height:1.5">GDPR protects the personal data of people in the EU. It requires appropriate security for that data, and it sets the conditions for sending personal data outside the EU.</p>
 <div style="display:flex;gap:12px;margin-bottom:14px"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:15.5px;line-height:1.5">HIPAA. Both require security safeguards for health data.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:17px;line-height:1.4">HIPAA. Both require security safeguards for health data.</div></div></div>
 <div style="display:flex;gap:12px;margin-bottom:20px"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:15.5px;line-height:1.5">HIPAA. GDPR reaches any data controller, including those that are not covered entities.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:17px;line-height:1.4">HIPAA. GDPR reaches any data controller, including those that are not covered entities.</div></div></div>
 <div class="srcnote" style="border-top:1px solid var(--rule);padding-top:10px">Source: Regulation (EU) 2016/679, Articles 32, 33 and 44 to 49.</div>
 <a class="lk u" href="statutes/gdpr.html" style="display:inline-block;margin-top:14px;font-size:15px">Open the full statute page</a>
 </div><div class="pn pn8">
-<div class="d" style="font-size:28px;color:var(--eut);font-stretch:112%">European Health Data Space</div>
+<div class="d" style="font-size:31px;color:var(--eut)">European Health Data Space</div>
 <div class="u mute" style="font-size:14px;margin:6px 0 18px">Binding law. Mar 2027; reuse 2029.</div>
 <div class="u" style="font-size:14px;font-weight:700;margin-bottom:4px">In plain language</div>
-<p style="margin:0 0 20px;font-size:17px;line-height:1.6">The EHDS sets EU-wide rules for using health data in care and for reuse in research and policy. For research reuse, data are made available through a secure processing environment under a data permit.</p>
+<p style="margin:0 0 20px;font-size:19px;line-height:1.5">The EHDS sets EU-wide rules for using health data in care and for reuse in research and policy. For research reuse, data are made available through a secure processing environment under a data permit.</p>
 <div style="display:flex;gap:12px;margin-bottom:14px"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:15.5px;line-height:1.5">GDPR. Both protect health data.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:17px;line-height:1.4">GDPR. Both protect health data.</div></div></div>
 <div style="display:flex;gap:12px;margin-bottom:20px"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:15.5px;line-height:1.5">U.S. instruments. No U.S. counterpart in this set. The EHDS secures the pool of data. Its security rules do not reach the wearable that feeds it (author's reading).</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:17px;line-height:1.4">U.S. instruments. No U.S. counterpart in this set. The EHDS secures the pool of data. Its security rules do not reach the wearable that feeds it (author’s reading).</div></div></div>
 <div class="srcnote" style="border-top:1px solid var(--rule);padding-top:10px">Source: Regulation (EU) 2025/327, Articles 47, 51, 73, 88 to 91 and 105.</div>
 <a class="lk u" href="statutes/ehds.html" style="display:inline-block;margin-top:14px;font-size:15px">Open the full statute page</a>
 </div><div class="pn pn9">
-<div class="d" style="font-size:28px;color:var(--inkt);font-stretch:112%">IMDRF N60, N70, N73</div>
+<div class="d" style="font-size:31px;color:var(--inkt)">IMDRF N60, N70, N73</div>
 <div class="u mute" style="font-size:14px;margin:6px 0 18px">Guidance. Final 2020, 2023.</div>
 <div class="u" style="font-size:14px;font-weight:700;margin-bottom:4px">In plain language</div>
-<p style="margin:0 0 20px;font-size:17px;line-height:1.6">IMDRF, the International Medical Device Regulators Forum, is a voluntary group of medical device regulators from around the world. It publishes shared principles. Three documents cover device cybersecurity: general principles (N60), legacy devices (N70) and software bills of materials (N73).</p>
+<p style="margin:0 0 20px;font-size:19px;line-height:1.5">IMDRF, the International Medical Device Regulators Forum, is a voluntary group of medical device regulators from around the world. It publishes shared principles. Three documents cover device cybersecurity: general principles (N60), legacy devices (N70) and software bills of materials (N73).</p>
 <div style="display:flex;gap:12px;margin-bottom:14px"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:15.5px;line-height:1.5">FDA and the EU both sit on IMDRF's Management Committee.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:17px;line-height:1.4">FDA and the EU both sit on IMDRF’s Management Committee.</div></div></div>
 <div style="display:flex;gap:12px;margin-bottom:20px"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:15.5px;line-height:1.5">Trial technology. It was written for devices only, and N60 leaves out data-privacy harm.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:17px;line-height:1.4">Trial technology. It was written for devices only, and N60 leaves out data-privacy harm.</div></div></div>
 <div class="srcnote" style="border-top:1px solid var(--rule);padding-top:10px">Source: IMDRF/CYBER WG/N60FINAL:2020, <em>Principles and Practices for Medical Device Cybersecurity</em> (18 March 2020), sections 2.0 and 4.0.</div>
 <a class="lk u" href="statutes/imdrf.html" style="display:inline-block;margin-top:14px;font-size:15px">Open the full statute page</a>
 </div><div class="pn pn10">
-<div class="d" style="font-size:28px;color:var(--inkt);font-stretch:112%">ICH E6(R3)</div>
+<div class="d" style="font-size:31px;color:var(--inkt)">ICH E6(R3)</div>
 <div class="u mute" style="font-size:14px;margin:6px 0 18px">Guideline. Adopted Jan 2025.</div>
 <div class="u" style="font-size:14px;font-weight:700;margin-bottom:4px">In plain language</div>
-<p style="margin:0 0 20px;font-size:17px;line-height:1.6">ICH E6(R3) is the international good clinical practice guideline. It sets out how trials should be run to protect participants and produce reliable data. It has a section on computerised systems that includes security.</p>
+<p style="margin:0 0 20px;font-size:19px;line-height:1.5">ICH E6(R3) is the international good clinical practice guideline. It sets out how trials should be run to protect participants and produce reliable data. It has a section on computerised systems that includes security.</p>
 <div style="display:flex;gap:12px;margin-bottom:14px"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:15.5px;line-height:1.5">Part 11. Both expect trustworthy electronic data.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it aligns</div><div style="font-size:17px;line-height:1.4">Part 11. Both expect trustworthy electronic data.</div></div></div>
 <div style="display:flex;gap:12px;margin-bottom:20px"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span>
-<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:15.5px;line-height:1.5">eConsent and eCOA platforms. It names no technical security standard for them.</div></div></div>
+<div><div class="u" style="font-size:14px;font-weight:700">Where it diverges</div><div style="font-size:17px;line-height:1.4">eConsent and eCOA platforms. It names no technical security standard for them.</div></div></div>
 <div class="srcnote" style="border-top:1px solid var(--rule);padding-top:10px">Source: ICH, <em>Guideline for Good Clinical Practice E6(R3)</em>, final version adopted 6 January 2025, section 4.3.3 and glossary (source records).</div>
 <a class="lk u" href="statutes/ich-e6r3.html" style="display:inline-block;margin-top:14px;font-size:15px">Open the full statute page</a>
 </div>
@@ -450,10 +450,10 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
 
 <section class="sec" style="margin-top:44px;border-top:2px solid var(--ink)">
 <div class="two" style="align-items:start">
-<div><h2 style="font-size:22px;margin-bottom:6px">When the rules take effect</h2>
+<div><h2 style="font-size:26px;margin-bottom:6px">When the rules take effect</h2>
 <p class="u mute small" style="margin-bottom:18px">Binding rules aimed at connected products and health data arrived after decentralized trials took off. Filled dots have happened. Open dots are still ahead.</p>
-<ol class="rail"><li style="--dc:var(--usl);--bc:var(--paper)"><div class="when" style="color:var(--ust)">Mar 2020 <span class="u" style="font-weight:600;color:var(--ink)">IMDRF N60</span></div><p>IMDRF publishes its general principles for medical device cybersecurity (N60, March 18, 2020).</p></li><li style="--dc:var(--usl);--bc:var(--paper)"><div class="when" style="color:var(--ust)">Mar 2023 <span class="u" style="font-weight:600;color:var(--ink)">§524B applies</span></div><p>Premarket submissions for cyber devices must include cybersecurity information (effective March 29, 2023). IMDRF N70 and N73 are also final in 2023.</p></li><li style="--dc:var(--usl);--bc:var(--paper)"><div class="when" style="color:var(--ust)">Jul 2024 <span class="u" style="font-weight:600;color:var(--ink)">FTC breach rule amended</span></div><p>The FTC's amendments to its Health Breach Notification Rule, making clear that it covers health apps and similar technologies, take effect July 29, 2024.</p></li><li style="--dc:var(--usl);--bc:var(--paper)"><div class="when" style="color:var(--ust)">Sept to Oct 2024 <span class="u" style="font-weight:600;color:var(--ink)">FDA guidances</span></div><p>FDA issues its decentralized trials guidance (September) and its electronic systems Q&amp;A (October). Both are nonbinding.</p></li><li style="--dc:var(--inkl);--bc:var(--paper)"><div class="when" style="color:var(--inkt)">Jan 2025 <span class="u" style="font-weight:600;color:var(--ink)">ICH E6(R3)</span></div><p>The revised good clinical practice guideline is adopted on January 6, 2025. Section 4.3.3 covers security.</p></li><li style="--dc:var(--eul);--bc:var(--paper)"><div class="when" style="color:var(--eut)">Dec 2025 <span class="u" style="font-weight:600;color:var(--ink)">MDR amendment proposed</span></div><p>The Commission proposes amending the MDR and IVDR, including new cybersecurity reporting (COM(2025) 1023). As of August 2026 it had not been adopted.</p></li><li style="--dc:var(--eul);--bc:var(--paper)"><div class="when" style="color:var(--eut)">Sept 2026 <span class="u" style="font-weight:600;color:var(--ink)">CRA reporting</span></div><p>Cyber Resilience Act duties to report actively exploited vulnerabilities and severe incidents apply from September 11, 2026.</p></li><li style="--dc:var(--paper);--bc:var(--eul)"><div class="when" style="color:var(--eut)">Mar 2027 <span class="u" style="font-weight:600;color:var(--ink)">EHDS applies</span></div><p>The European Health Data Space Regulation applies from March 26, 2027.</p></li><li style="--dc:var(--paper);--bc:var(--eul)"><div class="when" style="color:var(--eut)">Dec 2027 <span class="u" style="font-weight:600;color:var(--ink)">CRA main duties</span></div><p>The Cyber Resilience Act applies in full from December 11, 2027. Its reach to a tool supplied only inside a trial is unsettled.</p></li><li style="--dc:var(--paper);--bc:var(--eul)"><div class="when" style="color:var(--eut)">Mar 2029 <span class="u" style="font-weight:600;color:var(--ink)">EHDS research reuse</span></div><p>Chapter IV on secondary use applies from March 26, 2029, with the secure processing environment (Art. 73). Wearable and wellness data categories are included.</p></li><li style="--dc:var(--paper);--bc:var(--eul)"><div class="when" style="color:var(--eut)">Mar 2031 <span class="u" style="font-weight:600;color:var(--ink)">EHDS trial data</span></div><p>Data from clinical trials becomes a category for secondary use from March 26, 2031 (Art. 51(1)(m) and Art. 105).</p></li></ol></div>
-<div><h2 style="font-size:22px;margin-bottom:14px">Three policy gaps</h2><div style="display:grid;row-gap:18px"><div class="tip" tabindex="0"><div class="u" style="font-size:15px;font-weight:700">Policy gap 1: the sensor</div><div style="font-size:15px;line-height:1.5;margin:3px 0 0">No binding U.S. rule makes the maker of an unsubmitted trial wearable find, disclose or patch its flaws. <a class="lk u" href="recommendations.html" style="font-size:14px">Policy Recommendation 1</a></div><span class="pop up" style="--c:var(--inkl)"><b>Why it is a policy gap</b>Neither §524B nor the MDR reaches a wearable that was never classified as a device. The Cyber Resilience Act might, but that is unsettled. The FTC's breach rule, where it applies, requires notice after a breach and says nothing about finding or patching flaws.</span></div><div class="tip" tabindex="0"><div class="u" style="font-size:15px;font-weight:700">Policy gap 2: the systems</div><div style="font-size:15px;line-height:1.5;margin:3px 0 0">None of the instruments reviewed names a technical security standard for eConsent and eCOA platforms. Standards such as IEC 81001-5-1 and ISO/IEC 27001 exist, but no U.S. or EU trial rule or guidance points to one. <a class="lk u" href="recommendations.html" style="font-size:14px">Policy Recommendation 1</a></div><span class="pop up" style="--c:var(--inkl)"><b>Why it is a policy gap</b>Part 11 sets general controls, GDPR asks for appropriate security, and ICH E6(R3) lists controls to consider. None names a standard a platform vendor should meet.</span></div><div class="tip" tabindex="0"><div class="u" style="font-size:15px;font-weight:700">Policy gap 3: the inspections</div><div style="font-size:15px;line-height:1.5;margin:3px 0 0">FDA's GCP collaboration shares inspection findings with EU regulators. Cybersecurity findings are not part of what it describes. <a class="lk u" href="recommendations.html" style="font-size:14px">Policy Recommendation 2</a></div><span class="pop up" style="--c:var(--inkl)"><b>Why it is a policy gap</b>FDA, EMA, PMDA, MHRA and Health Canada already share inspection information under confidentiality arrangements. The FDA program page cites data integrity and does not mention cybersecurity.</span></div></div></div>
+<ol class="rail"><li style="--dc:var(--usl);--bc:var(--paper)"><div class="when" style="color:var(--ust)">Mar 2020 <span class="u" style="font-weight:600;color:var(--ink)">IMDRF N60</span></div><p>IMDRF publishes its general principles for medical device cybersecurity (N60, March 18, 2020).</p></li><li style="--dc:var(--usl);--bc:var(--paper)"><div class="when" style="color:var(--ust)">Mar 2023 <span class="u" style="font-weight:600;color:var(--ink)">§524B applies</span></div><p>Premarket submissions for cyber devices must include cybersecurity information (effective March 29, 2023). IMDRF N70 and N73 are also final in 2023.</p></li><li style="--dc:var(--usl);--bc:var(--paper)"><div class="when" style="color:var(--ust)">Jul 2024 <span class="u" style="font-weight:600;color:var(--ink)">FTC breach rule amended</span></div><p>The FTC’s amendments to its Health Breach Notification Rule, making clear that it covers health apps and similar technologies, take effect July 29, 2024.</p></li><li style="--dc:var(--usl);--bc:var(--paper)"><div class="when" style="color:var(--ust)">Sept to Oct 2024 <span class="u" style="font-weight:600;color:var(--ink)">FDA guidances</span></div><p>FDA issues its decentralized trials guidance (September) and its electronic systems Q&amp;A (October). Both are nonbinding.</p></li><li style="--dc:var(--inkl);--bc:var(--paper)"><div class="when" style="color:var(--inkt)">Jan 2025 <span class="u" style="font-weight:600;color:var(--ink)">ICH E6(R3)</span></div><p>The revised good clinical practice guideline is adopted on January 6, 2025. Section 4.3.3 covers security.</p></li><li style="--dc:var(--eul);--bc:var(--paper)"><div class="when" style="color:var(--eut)">Dec 2025 <span class="u" style="font-weight:600;color:var(--ink)">MDR amendment proposed</span></div><p>The Commission proposes amending the MDR and IVDR, including new cybersecurity reporting (COM(2025) 1023). As of August 2026 it had not been adopted.</p></li><li style="--dc:var(--eul);--bc:var(--paper)"><div class="when" style="color:var(--eut)">Sept 2026 <span class="u" style="font-weight:600;color:var(--ink)">CRA reporting</span></div><p>Cyber Resilience Act duties to report actively exploited vulnerabilities and severe incidents apply from September 11, 2026.</p></li><li style="--dc:var(--paper);--bc:var(--eul)"><div class="when" style="color:var(--eut)">Mar 2027 <span class="u" style="font-weight:600;color:var(--ink)">EHDS applies</span></div><p>The European Health Data Space Regulation applies from March 26, 2027.</p></li><li style="--dc:var(--paper);--bc:var(--eul)"><div class="when" style="color:var(--eut)">Dec 2027 <span class="u" style="font-weight:600;color:var(--ink)">CRA main duties</span></div><p>The Cyber Resilience Act applies in full from December 11, 2027. Its reach to a tool supplied only inside a trial is unsettled.</p></li><li style="--dc:var(--paper);--bc:var(--eul)"><div class="when" style="color:var(--eut)">Mar 2029 <span class="u" style="font-weight:600;color:var(--ink)">EHDS research reuse</span></div><p>Chapter IV on secondary use applies from March 26, 2029, with the secure processing environment (Art. 73). Wearable and wellness data categories are included.</p></li><li style="--dc:var(--paper);--bc:var(--eul)"><div class="when" style="color:var(--eut)">Mar 2031 <span class="u" style="font-weight:600;color:var(--ink)">EHDS trial data</span></div><p>Data from clinical trials becomes a category for secondary use from March 26, 2031 (Art. 51(1)(m) and Art. 105).</p></li></ol></div>
+<div><h2 style="font-size:26px;margin-bottom:14px">Three policy gaps</h2><div style="display:grid;row-gap:18px"><div class="tip" tabindex="0"><div class="u" style="font-size:15px;font-weight:700">Policy gap 1: the sensor</div><div style="font-size:17px;line-height:1.4;margin:3px 0 0">No binding U.S. rule makes the maker of an unsubmitted trial wearable find, disclose or patch its flaws. <a class="lk u" href="recommendations.html" style="font-size:14px">Policy Recommendation 1</a></div><span class="pop up" style="--c:var(--inkl)"><b>Why it is a policy gap</b>Neither §524B nor the MDR reaches a wearable that was never classified as a device. The Cyber Resilience Act might, but that is unsettled. The FTC’s breach rule, where it applies, requires notice after a breach and says nothing about finding or patching flaws.</span></div><div class="tip" tabindex="0"><div class="u" style="font-size:15px;font-weight:700">Policy gap 2: the systems</div><div style="font-size:17px;line-height:1.4;margin:3px 0 0">None of the instruments reviewed names a technical security standard for eConsent and eCOA platforms. Standards such as IEC 81001-5-1 and ISO/IEC 27001 exist, but no U.S. or EU trial rule or guidance points to one. <a class="lk u" href="recommendations.html" style="font-size:14px">Policy Recommendation 1</a></div><span class="pop up" style="--c:var(--inkl)"><b>Why it is a policy gap</b>Part 11 sets general controls, GDPR asks for appropriate security, and ICH E6(R3) lists controls to consider. None names a standard a platform vendor should meet.</span></div><div class="tip" tabindex="0"><div class="u" style="font-size:15px;font-weight:700">Policy gap 3: the inspections</div><div style="font-size:17px;line-height:1.4;margin:3px 0 0">FDA’s GCP collaboration shares inspection findings with EU regulators. Cybersecurity findings are not part of what it describes. <a class="lk u" href="recommendations.html" style="font-size:14px">Policy Recommendation 2</a></div><span class="pop up" style="--c:var(--inkl)"><b>Why it is a policy gap</b>FDA, EMA, PMDA, MHRA and Health Canada already share inspection information under confidentiality arrangements. The FDA program page cites data integrity and does not mention cybersecurity.</span></div></div></div>
 </div></section>
 
 </main>

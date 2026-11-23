@@ -7,26 +7,26 @@
 <meta name="description" content="Policy problem | Clinical Trial Cybersecurity Map">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Literata:opsz,wght@7..72,300..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* Layout concept: a policy reference. Wide ledger on the home page, one-column reading pages elsewhere. */
 :root{--us:#B7CBF7;--eu:#F9C2DA;--usl:#7F9DE0;--eul:#EE90BA;--ust:#2E4E9E;--eut:#B02F6B;
  --ink:#27265E;--inkl:#8C89C6;--inkt:#27265E;--sun:#FFE79A;--mute:#5D5C82;--rule:rgba(39,38,94,.18);--paper:#F6F7FB;--white:#fff;
- --f-d:'Archivo','Helvetica Neue',Arial,sans-serif;--f-b:'Literata',Georgia,'Times New Roman',serif;color-scheme:light}
+ --f-d:'Public Sans','Helvetica Neue',Arial,sans-serif;--f-b:'EB Garamond',Garamond,Georgia,'Times New Roman',serif;--f-h:var(--f-b);color-scheme:light}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-b);font-size:17px;line-height:1.6;
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-b);font-size:19px;line-height:1.5;
  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 a{color:inherit}
 .wrap{max-width:1240px;margin:0 auto}
-.d{font-family:var(--f-d);font-stretch:114%;font-weight:800;letter-spacing:-.012em;line-height:1.1;text-wrap:balance}
-.u{font-family:var(--f-d);font-stretch:100%}
+.d{font-family:var(--f-h);font-weight:700;line-height:1.15;text-wrap:balance}
+.u{font-family:var(--f-d)}
 h1,h2,h3{margin:0}
-h1{font-family:var(--f-d);font-stretch:112%;font-weight:800;letter-spacing:-.012em;line-height:1.08;font-size:clamp(30px,4.6vw,46px);text-wrap:balance}
-h2{font-family:var(--f-d);font-stretch:112%;font-weight:800;letter-spacing:-.01em;line-height:1.15;font-size:clamp(22px,2.6vw,28px);text-wrap:balance}
-h3{font-family:var(--f-d);font-stretch:108%;font-weight:700;line-height:1.2;font-size:18px}
+h1{font-family:var(--f-h);font-weight:700;line-height:1.1;font-size:clamp(34px,5vw,52px);text-wrap:balance}
+h2{font-family:var(--f-h);font-weight:700;line-height:1.18;font-size:clamp(25px,2.9vw,32px);text-wrap:balance}
+h3{font-family:var(--f-h);font-weight:600;line-height:1.22;font-size:20px}
 p{margin:0 0 1em}
-.lead{font-size:clamp(18px,2vw,21px);line-height:1.6}
+.lead{font-size:clamp(20px,2.1vw,23px);line-height:1.5}
 .mute{color:var(--mute)}
 .small{font-size:14px}
 .lk{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;font-weight:600}
@@ -43,19 +43,19 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .mark{position:relative;display:inline-block;width:40px;height:26px;flex:0 0 40px}
 .mark i{position:absolute;top:0;width:26px;height:26px;border-radius:50%;mix-blend-mode:multiply}
 .mark .a{left:0;background:var(--us)}.mark .b{left:14px;background:var(--eu)}
-.brand span.t{font-family:var(--f-d);font-stretch:114%;font-weight:800;font-size:19px;line-height:1.15}
+.brand span.t{font-family:var(--f-h);font-weight:700;font-size:23px;line-height:1.15}
 .nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:4px 22px;font-family:var(--f-d)}
 .nav a{text-decoration:none;font-size:15px;padding:6px 0;border-bottom:3px solid transparent}
 .nav a:hover{border-bottom-color:var(--rule)}
-.nav a.on{border-bottom-color:var(--ink);font-weight:700}
+.nav a.on{border-bottom-color:var(--ink);font-weight:600}
 .nav a.ref{margin-left:10px;padding-left:22px;border-left:1px solid var(--rule)}
 @media (max-width:860px){.nav a.ref{margin-left:0;padding-left:0;border-left:0}}
 
 /* tooltip pop */
 .tip{position:relative}
 .pop{display:none;position:absolute;z-index:40;width:310px;max-width:min(310px,84vw);background:#fff;color:var(--ink);padding:13px 16px;border-left:5px solid var(--c,var(--ink));
- box-shadow:6px 6px 0 rgba(39,38,94,.14);font-family:var(--f-b);font-size:14.5px;line-height:1.45;font-weight:400;font-stretch:100%;letter-spacing:0;text-align:left;white-space:normal}
-.pop b{display:block;font-family:var(--f-d);font-stretch:108%;font-weight:700;font-size:14.5px;margin-bottom:3px}
+ box-shadow:6px 6px 0 rgba(39,38,94,.14);font-family:var(--f-d);font-size:14.5px;line-height:1.45;font-weight:400;text-align:left;white-space:normal}
+.pop b{display:block;font-family:var(--f-d);font-weight:600;font-size:14.5px;margin-bottom:3px}
 .pop i{display:block;font-style:normal;font-family:var(--f-d);font-size:12.5px;color:var(--mute);margin-top:7px}
 .dn{top:calc(100% + 6px);left:0}.up{bottom:calc(100% + 6px);left:0}.rt{right:0;left:auto}
 .tip:hover>.pop,.tip:focus>.pop,.tip:focus-within>.pop{display:block}
@@ -70,15 +70,15 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .hatch{background:repeating-linear-gradient(135deg,rgba(255,226,130,.95) 0 4px,rgba(255,231,154,.3) 4px 8px)}
 .openitem{border:2px dashed var(--ink);padding:10px 14px;font-family:var(--f-d);font-size:14px;line-height:1.45;background:repeating-linear-gradient(135deg,rgba(255,231,154,.9) 0 6px,rgba(255,231,154,.4) 6px 12px)}
 .openitem b{font-weight:700}
-.callout{border-left:5px solid var(--inkl);padding:4px 0 4px 18px;font-family:var(--f-d);font-size:15px;line-height:1.5}
-.callout b{font-weight:700}
+.callout{border-left:5px solid var(--inkl);padding:4px 0 4px 18px;font-family:var(--f-b);font-size:17px;line-height:1.45}
+.callout b{font-weight:600}
 
 /* hero figure */
 .fig{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;font-family:var(--f-d)}
 .fig>div>.fz{margin:0}
 .fig .h{font-size:15px;font-weight:700;line-height:1.25;padding-bottom:10px}
 .fz{position:relative;padding:12px 14px;min-height:78px;color:var(--ink)}
-.fz .d{font-size:17px;font-stretch:110%}
+.fz .d{font-size:19px}
 .fz .s{font-size:13px;line-height:1.35;margin-top:3px}
 .z-us{background:var(--us)}.z-ov{background:#A99CD3}.z-eu{background:var(--eu)}
 .z-nus{border:2.5px dashed var(--usl);color:var(--ust)}
@@ -93,9 +93,9 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .cell{display:flex;align-items:flex-start;gap:10px;padding:14px 10px 14px 6px;min-height:68px;font-family:var(--f-d);font-size:14.5px;line-height:1.3}
 .nm{display:flex;gap:12px;padding:14px 8px 14px 0;cursor:pointer}
 .nm .bar{flex:0 0 6px;align-self:stretch}
-.nm .t{display:block;font-family:var(--f-d);font-stretch:108%;font-weight:800;font-size:16.5px;line-height:1.18}
+.nm .t{display:block;font-family:var(--f-d);font-weight:600;font-size:16.5px;line-height:1.2}
 .nm .s{display:block;font-family:var(--f-d);font-size:13.5px;color:var(--mute);margin-top:3px}
-.ch{font-family:var(--f-d);font-size:13.5px;font-weight:700;line-height:1.25;padding:0 10px 8px 6px;border-bottom:3px solid var(--ink);display:flex;align-items:flex-end}
+.ch{font-family:var(--f-d);font-size:13.5px;font-weight:600;line-height:1.25;padding:0 10px 8px 6px;border-bottom:3px solid var(--ink);display:flex;align-items:flex-end}
 .grp{margin-top:22px}
 .grp>.gh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:10px 0 4px}
 .fl{padding:4px 0;margin-right:20px;border-bottom:3px solid transparent;cursor:pointer;font-family:var(--f-d);font-size:15px}
@@ -106,23 +106,23 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 /* reading pages */
 .cols{display:grid;grid-template-columns:230px minmax(0,1fr) 270px;gap:44px;align-items:start}
 .toc a{display:block;text-decoration:none;font-family:var(--f-d);font-size:15px;padding:6px 0 6px 12px;border-left:6px solid var(--bar,var(--rule));margin-bottom:6px;line-height:1.25}
-.toc a.on{font-weight:800}
-.toc .g{font-family:var(--f-d);font-weight:800;font-size:15px;border-top:3px solid var(--bar);padding-top:6px;margin:22px 0 8px}
+.toc a.on{font-weight:600}
+.toc .g{font-family:var(--f-d);font-weight:600;font-size:15px;border-top:3px solid var(--bar);padding-top:6px;margin:22px 0 8px}
 .margin{border-left:2px solid var(--ink);padding-left:22px}
-.margin h3{font-size:15px;margin:0 0 4px}
-.margin p{font-size:15.5px;line-height:1.5;margin:0 0 16px}
+.margin h3{font-family:var(--f-d);font-weight:600;font-size:15px;margin:0 0 4px}
+.margin p{font-size:17px;line-height:1.45;margin:0 0 16px}
 .metaline{display:flex;flex-wrap:wrap;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-family:var(--f-d);font-size:14.5px;margin:18px 0 28px}
 .metaline span{padding:10px 18px 10px 0;margin-right:18px;border-right:1px solid var(--rule)}
 .metaline span:last-child{border-right:0}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .cards>div{border-top:3px solid var(--cc,var(--usl));padding-top:8px}
-.cards h3{color:var(--ct,var(--ust));margin-bottom:6px;font-size:17px}
-.cards p{font-size:16px;line-height:1.5;margin:0}
+.cards h3{color:var(--ct,var(--ust));margin-bottom:6px;font-size:19px}
+.cards p{font-size:17.5px;line-height:1.45;margin:0}
 .dashrule{border-top:3px dashed var(--ink);padding-top:14px;display:flex;gap:14px;align-items:flex-start}
 .stack>*+*{margin-top:34px}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:34px 44px;border-top:2px solid var(--ink);padding-top:26px;margin-top:48px}
 .cmp>div:first-child{grid-column:1 / -1}
-.cmp .it{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--rule);font-size:16px;line-height:1.5}
+.cmp .it{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--rule);font-size:17.5px;line-height:1.45}
 .cmp .it:last-child{border-bottom:1px solid var(--rule)}
 .venn{position:relative;flex:0 0 26px;height:20px;margin-top:5px}
 .venn i{position:absolute;top:0;width:15px;height:15px;border-radius:50%}
@@ -134,40 +134,40 @@ a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visi
 .sec{padding:34px 0}
 .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px}
 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
-table.t{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.45}
+table.t{border-collapse:collapse;width:100%;font-size:17px;line-height:1.4}
 table.t th{font-family:var(--f-d);font-size:13.5px;text-align:left;padding:0 12px 8px 0;border-bottom:3px solid var(--ink);vertical-align:bottom}
 table.t td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
 .scroll{overflow-x:auto}
-.bignum{font-family:var(--f-d);font-stretch:118%;font-weight:800;font-size:clamp(34px,5vw,52px);line-height:1;color:var(--ust)}
+.bignum{font-family:var(--f-h);font-weight:700;font-variant-numeric:lining-nums;white-space:nowrap;font-size:clamp(40px,5.6vw,60px);line-height:1;color:var(--ust)}
 .bignum.e{color:var(--eut)}
 .rail{list-style:none;margin:0;padding:0;border-left:3px solid var(--ink)}
 .rail li{position:relative;padding:0 0 18px 24px}
 .rail li::before{content:"";position:absolute;left:-10px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--dc,var(--inkl));border:3px solid var(--bc,var(--paper))}
-.rail .when{font-family:var(--f-d);font-weight:800;font-size:15px}
-.rail p{margin:2px 0 0;font-size:15.5px;line-height:1.45}
+.rail .when{font-family:var(--f-d);font-weight:600;font-size:15px}
+.rail p{margin:2px 0 0;font-size:17px;line-height:1.4}
 .step{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
 .step label{display:block;cursor:pointer;padding:0 14px 0 0;position:relative}
 .step label .ic{display:flex;align-items:center;margin-bottom:14px}
 .step label .ic::after{content:"";flex:1;border-top:4px solid var(--ink);margin-left:10px}
 .step label:last-child .ic::after{margin-right:0}
-.step h3{font-size:19px;font-stretch:112%;margin-bottom:6px}
-.step .tag{font-family:var(--f-d);font-size:14px;font-weight:700;margin-bottom:6px}
-.step p{font-size:15.5px;line-height:1.5;margin:0}
+.step h3{font-size:21px;margin-bottom:6px}
+.step .tag{font-family:var(--f-d);font-size:14px;font-weight:600;margin-bottom:6px}
+.step p{font-size:17px;line-height:1.4;margin:0}
 .det{display:none}
-.chip{display:inline-block;font-family:var(--f-d);font-size:13px;font-weight:700;padding:3px 10px;border:2px solid var(--ink);margin:0 8px 8px 0}
+.chip{display:inline-block;font-family:var(--f-d);font-size:13px;font-weight:600;padding:3px 10px;border:2px solid var(--ink);margin:0 8px 8px 0}
 .rec{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:44px;border-top:3px solid var(--rc);padding-top:22px;margin-top:40px}
-.rec .kick{font-family:var(--f-d);font-weight:700;font-size:15px;color:var(--rt)}
+.rec .kick{font-family:var(--f-d);font-weight:600;font-size:15px;color:var(--rt)}
 .rec ol,.rec ul{padding-left:1.2em;margin:0 0 1em}
 .rec li{margin-bottom:.55em}
-.kv{display:grid;grid-template-columns:110px minmax(0,1fr);border-top:1px solid var(--rule);font-size:15.5px;line-height:1.45}
+.kv{display:grid;grid-template-columns:110px minmax(0,1fr);border-top:1px solid var(--rule);font-size:17px;line-height:1.4}
 .kv>div{padding:10px 8px 10px 0;border-bottom:1px solid var(--rule)}
-.kv>div:nth-child(odd){font-family:var(--f-d);font-weight:700;font-size:13.5px;padding-top:12px}
+.kv>div:nth-child(odd){font-family:var(--f-d);font-weight:600;font-size:13.5px;padding-top:12px}
 .obj{border-top:1px solid var(--rule);padding:22px 0}
 .obj:last-child{border-bottom:1px solid var(--rule)}
-.obj h3{font-size:clamp(19px,2.2vw,23px);margin-bottom:10px}
+.obj h3{font-size:clamp(21px,2.4vw,26px);margin-bottom:10px}
 .obj .a{border-left:4px solid var(--usl);padding-left:18px}
 .obj .o{font-family:var(--f-d);font-size:14.5px;color:var(--mute);margin-top:10px}
-.obj .o b{color:var(--ink)}
+.obj .o b{color:var(--ink);font-weight:600}
 footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-family:var(--f-d);font-size:14px;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
 .hide-sm{display:initial}
 
@@ -177,7 +177,7 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
  .cols>.margin{grid-column:1 / -1;margin-top:8px}
  .cmp{grid-template-columns:1fr;gap:30px}
  .three{grid-template-columns:1fr;gap:24px}
- .home-top{flex-direction:column}
+ .home-top{flex-direction:column;align-items:flex-start!important}
  .led-grid{flex-direction:column}
  .sidepanel{border-left:0;border-top:2px solid var(--ink);padding:22px 0 0}
 }
@@ -200,7 +200,7 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
  .nav{margin-left:0}
 }
 @media (max-width:520px){
- body{font-size:16.5px}
+ body{font-size:18px}
  .kv{grid-template-columns:1fr}
  .kv>div:nth-child(odd){border-bottom:0;padding-bottom:0}
  .fig{grid-template-columns:1fr;gap:22px 0}
@@ -217,7 +217,7 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
 <section style="padding:36px 0 0;max-width:900px">
 <div class="u mute small" style="margin-bottom:10px">The policy problem</div>
 <h1 style="margin-bottom:22px">Trial technology is a target, and binding device rules stop at classification</h1>
-<p class="lead" style="border-left:5px solid var(--usl);padding-left:20px;margin-bottom:12px"><b>The policy problem.</b> A wearable or app used in a decentralized clinical trial can fall outside every binding device cybersecurity rule in the United States and the European Union. The systems that hold its data face binding rules, such as Part 11 and GDPR Article 32, that name no security standard. And the regulators who inspect trials have no shared way to compare what they find.</p>
+<p class="lead" style="border-left:5px solid var(--usl);padding-left:20px;margin-bottom:12px"><b>The policy problem.</b> A wearable or app used in a decentralized clinical trial can fall outside every binding device cybersecurity rule in the United States and the European Union. The systems that hold its data face binding rules, such as Part 11 and GDPR Article 32, that name no security standard. And the regulators who inspect trials have no harmonized way to compare what they find.</p>
 <p class="u mute small">This page makes the case in four steps: the data is already being taken, trial technology is growing fast, the rules depend on a label, and each group in a trial carries a different cost.</p>
 </section>
 
@@ -225,43 +225,43 @@ footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-
 <div class="two" style="align-items:start">
 <div><p>Health care data breaches are frequent and often run through vendors. As of a July 7, 2025 snapshot of the U.S. Department of Health and Human Services breach portal, reported by BankInfoSecurity, 345 breaches had been reported in 2025. They affected about 29.9 million people. Of those, 127 breaches, 37 percent, involved a business associate, and they affected about 15.8 million people, more than half of the total.</p>
 <div style="display:flex;gap:30px;flex-wrap:wrap;margin:18px 0"><div><div class="bignum">345</div><div class="u small mute">breaches reported by July 7, 2025</div></div><div><div class="bignum e">37%</div><div class="u small mute">involved a business associate, a vendor</div></div></div></div>
-<div><p>Clinical research has had its own incidents. The three below involve a site network, a sponsor and a vendor's cloud, which are different parts of the trial supply chain.</p></div></div>
-<div class="scroll"><table class="t"><thead><tr><th>When</th><th>Who</th><th>What happened</th><th>Where</th></tr></thead><tbody><tr><td class="u" style="white-space:nowrap;font-weight:700">Feb 2025</td><td style="font-family:var(--f-d);font-weight:700">DM Clinical Research*</td><td>About 1.67 million records exposed online, linked to a clinical trial site network.</td><td class="u">An unsecured database</td></tr><tr><td class="u" style="white-space:nowrap;font-weight:700">Jun 2026</td><td style="font-family:var(--f-d);font-weight:700">Novo Nordisk</td><td>Attackers copied pseudonymized health data of trial participants.</td><td class="u">The sponsor's own systems</td></tr><tr><td class="u" style="white-space:nowrap;font-weight:700">Jul 2026</td><td style="font-family:var(--f-d);font-weight:700">Amgen</td><td>Patient health information accessed in vendor-hosted cloud environments.</td><td class="u">A third party's cloud</td></tr></tbody></table></div>
-<p class="srcnote" style="margin-top:12px">*Press reports do not confirm who owned the database. Sources: HHS portal snapshot via BankInfoSecurity; Security Magazine and HIPAA Journal (DM Clinical Research); The Register and Novo Nordisk's statement of June 11, 2026; Amgen's notice and BankInfoSecurity. Full list on <a class="lk" href="about.html#sources">Sources and methodology</a>.</p>
-<p style="margin-top:14px">Consumer wearable platforms have been hit. In July 2020 a ransomware attack took Garmin's Connect service offline for several days. In 2018, Bellingcat and De Correspondent showed that Polar's Flow app exposed the homes and exercise routes of military and intelligence personnel. Neither involved a trial, but Garmin is one of the five brands that Miyakoshi and Ito counted in trial registrations.</p>
+<div><p>Clinical research has had its own incidents. The three below involve a site network, a sponsor and a vendor’s cloud, which are different parts of the trial supply chain.</p></div></div>
+<div class="scroll"><table class="t"><thead><tr><th>When</th><th>Who</th><th>What happened</th><th>Where</th></tr></thead><tbody><tr><td style="white-space:nowrap;font-weight:700">Feb 2025</td><td style="font-weight:700">DM Clinical Research*</td><td>About 1.67 million records exposed online, linked to a clinical trial site network.</td><td>An unsecured database</td></tr><tr><td style="white-space:nowrap;font-weight:700">Jun 2026</td><td style="font-weight:700">Novo Nordisk</td><td>Attackers copied pseudonymized health data of trial participants.</td><td>The sponsor’s own systems</td></tr><tr><td style="white-space:nowrap;font-weight:700">Jul 2026</td><td style="font-weight:700">Amgen</td><td>Patient health information accessed in vendor-hosted cloud environments.</td><td>A third party’s cloud</td></tr></tbody></table></div>
+<p class="srcnote" style="margin-top:12px">*Press reports do not confirm who owned the database. Sources: HHS portal snapshot via BankInfoSecurity; Security Magazine and HIPAA Journal (DM Clinical Research); The Register and Novo Nordisk’s statement of June 11, 2026; Amgen’s notice and BankInfoSecurity. Full list on <a class="lk" href="about.html#sources">Sources and methodology</a>.</p>
+<p style="margin-top:14px">Consumer wearable platforms have been hit. In July 2020 a ransomware attack took Garmin’s Connect service offline for several days. In 2018, Bellingcat and De Correspondent showed that Polar’s Flow app exposed the homes and exercise routes of military and intelligence personnel. Neither involved a trial, but Garmin is one of the five brands that Miyakoshi and Ito counted in trial registrations.</p>
 <div class="callout" style="margin-top:14px"><b>What this does not show.</b> None of these incidents involved a trial wearable, and I found no documented breach of one, so my argument rests on exposure. This data is a target, and decentralized trials add more devices and more vendors. I argue for acting before a breach occurs.</div>
-<p style="margin-top:14px">Data theft is one risk. Altered data is another. If a sensor's readings or a platform's records can be changed without detection, a trial's results can be wrong, and regulators base approval decisions on those results. Part 11 requires controls that protect the integrity of electronic records (§11.10), and ICH E6(R3) is written to produce reliable trial results. None of the incidents above is known to have changed trial data; the risk is my reading.</p></section>
+<p style="margin-top:14px">Data theft is one risk. Altered data is another. If a sensor’s readings or a platform’s records can be changed without detection, a trial’s results can be wrong, and regulators base approval decisions on those results. Part 11 requires controls that protect the integrity of electronic records (§11.10), and ICH E6(R3) is written to produce reliable trial results. None of the incidents above is known to have changed trial data; the risk is my reading.</p></section>
 
 <section class="sec rule2"><h2 style="margin-bottom:14px">2. Trial technology is growing, and for good reasons</h2>
 <div class="two" style="align-items:start">
-<div><p>FDA describes why trials are moving toward participants' homes. Decentralized trials “have the potential to expand access to more representative patient populations and improve trial efficiencies.” By enabling remote participation they may reduce the burden on caregivers and “facilitate research on rare diseases and diseases affecting populations with limited mobility or limited access to traditional clinical trial sites.”</p>
-<p>The same guidance says digital health technologies “have expanded the types of trial-related data that can be obtained remotely.” That expansion also puts a sensor on a wrist inside a trial's data path.</p></div>
+<div><p>FDA describes why trials are moving toward participants’ homes. Decentralized trials “have the potential to expand access to more representative patient populations and improve trial efficiencies.” By enabling remote participation they may reduce the burden on caregivers and “facilitate research on rare diseases and diseases affecting populations with limited mobility or limited access to traditional clinical trial sites.”</p>
+<p>The same guidance says digital health technologies “have expanded the types of trial-related data that can be obtained remotely.” That expansion also puts a sensor on a wrist inside a trial’s data path.</p></div>
 <div><div style="display:flex;gap:30px;flex-wrap:wrap;margin-bottom:12px"><div><div class="bignum">14.2%</div><div class="u small mute">a year: wearables, the fastest-growing technology segment</div></div><div><div class="bignum e">14.1%</div><div class="u small mute">a year: mobile apps, close behind</div></div></div>
 <p class="srcnote">Source: GM Insights, decentralized clinical trials market report. This is a market-research projection.</p>
 <p>Researchers have also counted use: Miyakoshi and Ito (2024) found 2,930 ClinicalTrials.gov studies using five wearable brands through August 2022.</p></div></div></section>
 
 <section class="sec rule2"><h2 style="margin-bottom:14px">3. The rules depend on a label</h2>
-<p style="max-width:820px">In both systems, binding device cybersecurity rules attach to products that are classified as medical devices. The U.S. rule, §524B, applies when a maker submits a connected device to FDA. The EU rule, MDR Annex I, applies to products intended for a medical purpose. A wrist sensor sold for fitness is not a device because a trial uses it, so neither rule reaches it. The EU's Cyber Resilience Act might, but its text never mentions clinical trials and its reach to a tool supplied only inside a trial is unsettled. In the U.S., the FTC's Health Breach Notification Rule may reach some health apps that HIPAA does not, but it requires notice after a breach and sets no security requirements.</p>
+<p style="max-width:820px">In both systems, binding device cybersecurity rules attach to products that are classified as medical devices. The U.S. rule, §524B, applies when a maker submits a connected device to FDA. The EU rule, MDR Annex I, applies to products intended for a medical purpose. A wrist sensor sold for fitness is not a device because a trial uses it, so neither rule reaches it. The EU’s Cyber Resilience Act might, but its text never mentions clinical trials and its reach to a tool supplied only inside a trial is unsettled. In the U.S., the FTC’s Health Breach Notification Rule may reach some health apps that HIPAA does not, but it requires notice after a breach and sets no security requirements.</p>
 <div class="three" style="margin-top:22px">
-<div><h3 style="margin-bottom:6px">Policy gap 1: the sensor</h3><p style="font-size:16px">No binding U.S. rule makes the maker of an unsubmitted trial wearable find, disclose or patch its flaws.</p></div>
-<div><h3 style="margin-bottom:6px">Policy gap 2: the systems</h3><p style="font-size:16px">None of the instruments reviewed names a technical security standard for eConsent and eCOA platforms. Standards such as IEC 81001-5-1 and ISO/IEC 27001 exist, but no U.S. or EU trial rule or guidance points to one.</p></div>
-<div><h3 style="margin-bottom:6px">Policy gap 3: the inspections</h3><p style="font-size:16px">FDA and its partners share inspection findings, and the program as described covers data integrity and does not mention cybersecurity.</p></div></div>
-<p style="margin-top:8px"><a class="lk" href="index.html">See the dashboard</a> or <a class="lk" href="pathway.html">follow one participant's data</a>.</p></section>
+<div><h3 style="margin-bottom:6px">Policy gap 1: the sensor</h3><p style="font-size:18px">No binding U.S. rule makes the maker of an unsubmitted trial wearable find, disclose or patch its flaws.</p></div>
+<div><h3 style="margin-bottom:6px">Policy gap 2: the systems</h3><p style="font-size:18px">None of the instruments reviewed names a technical security standard for eConsent and eCOA platforms. Standards such as IEC 81001-5-1 and ISO/IEC 27001 exist, but no U.S. or EU trial rule or guidance points to one.</p></div>
+<div><h3 style="margin-bottom:6px">Policy gap 3: the inspections</h3><p style="font-size:18px">FDA and its partners share inspection findings, and the program as described covers data integrity and does not mention cybersecurity.</p></div></div>
+<p style="margin-top:8px"><a class="lk" href="index.html">See the dashboard</a> or <a class="lk" href="pathway.html">follow one participant’s data</a>.</p></section>
 
 <section class="sec rule2"><h2 style="margin-bottom:6px">4. Who bears the cost</h2>
 <p class="srcnote" style="margin-bottom:14px">This table is my own analysis of the gaps above.</p>
 <div class="scroll"><table class="t" style="min-width:640px"><thead><tr><th style="width:18%">Who</th><th>In the U.S.</th><th>In the EU</th></tr></thead><tbody>
 <tr><td class="u"><b>Participants</b></td><td>Continuous health data sits with vendors that may not be covered by HIPAA or by any binding device rule.</td><td>GDPR protects the data, including a 72-hour breach notice, but sets no duty on the sensor maker.</td></tr>
-<tr><td class="u"><b>Sponsors and sites</b></td><td>Part 11 and FDA's Q&amp;A tell them to assess risk and contract for security. They decide how much, with no shared baseline.</td><td>GDPR Article 32 asks for appropriate security. ICH E6(R3) lists controls to consider. Each sponsor decides what is enough.</td></tr>
+<tr><td class="u"><b>Sponsors and sites</b></td><td>Part 11 and FDA’s Q&amp;A tell them to assess risk and contract for security. They decide how much, with no shared baseline.</td><td>GDPR Article 32 asks for appropriate security. ICH E6(R3) lists controls to consider. Each sponsor decides what is enough.</td></tr>
 <tr><td class="u"><b>Vendors</b></td><td>Face different questionnaires from each sponsor, and no binding rule if never classified.</td><td>May or may not fall under the Cyber Resilience Act. The answer is unsettled.</td></tr>
-<tr><td class="u"><b>Regulators</b></td><td>FDA's inspectors already check security controls at sponsors and CROs, but there is no shared definition of a cybersecurity finding to compare with the EU.</td><td>EU regulators inspect too. FDA and EMA share inspection information, and cybersecurity is not described as part of it.</td></tr></tbody></table></div></section>
+<tr><td class="u"><b>Regulators</b></td><td>FDA’s inspectors already check security controls at sponsors and CROs, but there is no harmonized definition of a cybersecurity finding to compare with the EU.</td><td>EU regulators inspect too. FDA and EMA share inspection information, and cybersecurity is not described as part of it.</td></tr></tbody></table></div></section>
 
 <section class="sec rule2"><h2 style="margin-bottom:14px">Why the policy gap persists</h2>
-<div class="two"><div><p>Binding rules aimed at connected products arrived after decentralized trials took off: §524B applies from March 2023 and the Cyber Resilience Act's main duties from December 2027. The EU's health data space, which is a data rule, begins in 2027. FDA's decentralized-trial guidance and its Q&amp;A date from 2024 and are nonbinding.</p></div>
+<div class="two"><div><p>Binding rules aimed at connected products arrived after decentralized trials took off: §524B applies from March 2023 and the Cyber Resilience Act’s main duties from December 2027. The EU’s health data space, which is a data rule, begins in 2027. FDA’s decentralized-trial guidance and its Q&amp;A date from 2024 and are nonbinding.</p></div>
 <div><p>A trial that starts today could run into 2028 without knowing which EU rules apply to its wearable. And data collected now can be reused for research in the EU from 2029, with clinical trial data as a category from 2031, so weak security at the sensor can affect the data when it is reused.</p></div></div></section>
 
 <section class="sec rule2"><h2 style="margin-bottom:6px">Terms in plain language</h2>
-<p class="srcnote" style="margin-bottom:10px">For readers new to clinical trials.</p><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Decentralized clinical trial (DCT).</b> FDA's definition: “A clinical trial that includes decentralized elements where trial-related activities occur at locations other than traditional clinical trial sites.” Parts of the study happen at a participant's home.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Digital health technology (DHT).</b> FDA's definition: a system that uses computing platforms, connectivity, software or sensors for health care and related uses, spanning “applications in general wellness to applications as a medical device.” A trial wearable is one.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Wearable.</b> A sensor worn on the body, such as a wrist band that records heart rate and sleep.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">eConsent.</b> The informed-consent process done on a screen instead of on paper.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">eCOA.</b> Electronic clinical outcome assessment: the symptom surveys, diaries and tests that participants complete on a phone or tablet.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Sponsor.</b> The organization that runs and pays for a trial, often a drug or device company or a university.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Classified as a medical device.</b> A product that regulators treat as a medical device because of what its maker says it is for. In both the U.S. and the EU, classification decides which device cybersecurity rules apply.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Soft law.</b> Guidance that regulators publish and expect people to follow but that no one is legally required to obey.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">IMDRF.</b> The International Medical Device Regulators Forum, a voluntary group of medical device regulators from around the world.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">GCP inspection.</b> A regulator's check that a trial follows good clinical practice: that it protects participants and produces reliable data.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Software bill of materials.</b> A list of the software components inside a product, similar to an ingredients list for code.</div></section>
+<p class="srcnote" style="margin-bottom:10px">For readers new to clinical trials.</p><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Decentralized clinical trial (DCT).</b> FDA’s definition: “A clinical trial that includes decentralized elements where trial-related activities occur at locations other than traditional clinical trial sites.” Parts of the study happen at a participant’s home.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Digital health technology (DHT).</b> FDA’s definition: a system that uses computing platforms, connectivity, software or sensors for health care and related uses, spanning “applications in general wellness to applications as a medical device.” A trial wearable is one.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Wearable.</b> A sensor worn on the body, such as a wrist band that records heart rate and sleep.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">eConsent.</b> The informed-consent process done on a screen instead of on paper.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">eCOA.</b> Electronic clinical outcome assessment: the symptom surveys, diaries and tests that participants complete on a phone or tablet.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Sponsor.</b> The organization that runs and pays for a trial, often a drug or device company or a university.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Classified as a medical device.</b> A product that regulators treat as a medical device because of what its maker says it is for. In both the U.S. and the EU, classification decides which device cybersecurity rules apply.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Soft law.</b> Guidance that regulators publish and expect people to follow but that no one is legally required to obey.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">IMDRF.</b> The International Medical Device Regulators Forum, a voluntary group of medical device regulators from around the world.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">GCP inspection.</b> A regulator’s check that a trial follows good clinical practice: that it protects participants and produces reliable data.</div><div style="border-top:1px solid var(--rule);padding:12px 0"><b class="u">Software bill of materials.</b> A list of the software components inside a product, similar to an ingredients list for code.</div></section>
 
 </main>
 <footer class="wrap"><span>Clinical Trial Cybersecurity Map. Ryan Pon. Capstone Project, Cybersecurity and Health Data Policy, Duke Sanford PPS 552.</span><span>A policy reference, not legal advice. <a class="lk" href="about.html">Sources and methodology</a></span></footer>
