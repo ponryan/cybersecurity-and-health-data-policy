@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Policy recommendations | Clinical Trial Cybersecurity Map</title>
+<meta name="description" content="Policy recommendations | Clinical Trial Cybersecurity Map">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Literata:opsz,wght@7..72,300..800&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: a policy reference. Wide ledger on the home page, one-column reading pages elsewhere. */
+:root{--us:#B7CBF7;--eu:#F9C2DA;--usl:#7F9DE0;--eul:#EE90BA;--ust:#2E4E9E;--eut:#B02F6B;
+ --ink:#27265E;--inkl:#8C89C6;--inkt:#27265E;--sun:#FFE79A;--mute:#5D5C82;--rule:rgba(39,38,94,.18);--paper:#F6F7FB;--white:#fff;
+ --f-d:'Archivo','Helvetica Neue',Arial,sans-serif;--f-b:'Literata',Georgia,'Times New Roman',serif;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-b);font-size:17px;line-height:1.6;
+ padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.d{font-family:var(--f-d);font-stretch:114%;font-weight:800;letter-spacing:-.012em;line-height:1.1;text-wrap:balance}
+.u{font-family:var(--f-d);font-stretch:100%}
+h1,h2,h3{margin:0}
+h1{font-family:var(--f-d);font-stretch:112%;font-weight:800;letter-spacing:-.012em;line-height:1.08;font-size:clamp(30px,4.6vw,46px);text-wrap:balance}
+h2{font-family:var(--f-d);font-stretch:112%;font-weight:800;letter-spacing:-.01em;line-height:1.15;font-size:clamp(22px,2.6vw,28px);text-wrap:balance}
+h3{font-family:var(--f-d);font-stretch:108%;font-weight:700;line-height:1.2;font-size:18px}
+p{margin:0 0 1em}
+.lead{font-size:clamp(18px,2vw,21px);line-height:1.6}
+.mute{color:var(--mute)}
+.small{font-size:14px}
+.lk{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;font-weight:600}
+.lk:hover{background:var(--sun)}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible,label:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.vh{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+
+/* masthead */
+.band{position:relative;height:8px;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)))}
+.band i{position:absolute;top:0;height:8px;width:56%}
+.band .a{left:0;background:var(--us)}.band .b{right:0;background:var(--eu);mix-blend-mode:multiply}
+.mast{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;padding:18px 0 14px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.mark{position:relative;display:inline-block;width:40px;height:26px;flex:0 0 40px}
+.mark i{position:absolute;top:0;width:26px;height:26px;border-radius:50%;mix-blend-mode:multiply}
+.mark .a{left:0;background:var(--us)}.mark .b{left:14px;background:var(--eu)}
+.brand span.t{font-family:var(--f-d);font-stretch:114%;font-weight:800;font-size:19px;line-height:1.15}
+.nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:4px 22px;font-family:var(--f-d)}
+.nav a{text-decoration:none;font-size:15px;padding:6px 0;border-bottom:3px solid transparent}
+.nav a:hover{border-bottom-color:var(--rule)}
+.nav a.on{border-bottom-color:var(--ink);font-weight:700}
+.nav a.ref{margin-left:10px;padding-left:22px;border-left:1px solid var(--rule)}
+@media (max-width:860px){.nav a.ref{margin-left:0;padding-left:0;border-left:0}}
+
+/* tooltip pop */
+.tip{position:relative}
+.pop{display:none;position:absolute;z-index:40;width:310px;max-width:min(310px,84vw);background:#fff;color:var(--ink);padding:13px 16px;border-left:5px solid var(--c,var(--ink));
+ box-shadow:6px 6px 0 rgba(39,38,94,.14);font-family:var(--f-b);font-size:14.5px;line-height:1.45;font-weight:400;font-stretch:100%;letter-spacing:0;text-align:left;white-space:normal}
+.pop b{display:block;font-family:var(--f-d);font-stretch:108%;font-weight:700;font-size:14.5px;margin-bottom:3px}
+.pop i{display:block;font-style:normal;font-family:var(--f-d);font-size:12.5px;color:var(--mute);margin-top:7px}
+.dn{top:calc(100% + 6px);left:0}.up{bottom:calc(100% + 6px);left:0}.rt{right:0;left:auto}
+.tip:hover>.pop,.tip:focus>.pop,.tip:focus-within>.pop{display:block}
+.term{border-bottom:2px dotted var(--ink);cursor:help}
+
+/* glyphs */
+.glyph{display:inline-block;width:18px;height:18px;border-radius:50%;flex:0 0 18px;vertical-align:middle}
+.g-cov{background:var(--gc,var(--ink))}
+.g-par{border:2px solid var(--gc,var(--ink));background:repeating-linear-gradient(135deg,var(--sun) 0 3px,rgba(255,231,154,.35) 3px 6px)}
+.g-gap{border:2px dashed var(--gc,var(--ink));background:transparent}
+.g-out{width:12px;height:2px;border-radius:0;background:var(--mute);flex:0 0 12px;margin:0 3px}
+.hatch{background:repeating-linear-gradient(135deg,rgba(255,226,130,.95) 0 4px,rgba(255,231,154,.3) 4px 8px)}
+.openitem{border:2px dashed var(--ink);padding:10px 14px;font-family:var(--f-d);font-size:14px;line-height:1.45;background:repeating-linear-gradient(135deg,rgba(255,231,154,.9) 0 6px,rgba(255,231,154,.4) 6px 12px)}
+.openitem b{font-weight:700}
+.callout{border-left:5px solid var(--inkl);padding:4px 0 4px 18px;font-family:var(--f-d);font-size:15px;line-height:1.5}
+.callout b{font-weight:700}
+
+/* hero figure */
+.fig{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;font-family:var(--f-d)}
+.fig>div>.fz{margin:0}
+.fig .h{font-size:15px;font-weight:700;line-height:1.25;padding-bottom:10px}
+.fz{position:relative;padding:12px 14px;min-height:78px;color:var(--ink)}
+.fz .d{font-size:17px;font-stretch:110%}
+.fz .s{font-size:13px;line-height:1.35;margin-top:3px}
+.z-us{background:var(--us)}.z-ov{background:#A99CD3}.z-eu{background:var(--eu)}
+.z-nus{border:2.5px dashed var(--usl);color:var(--ust)}
+.z-neu{border:2.5px dashed var(--eul);border-top:0;color:var(--ink)}
+.z-neu .d{color:var(--eut)}
+.fnote{font-size:14px;padding-top:8px;border-top:3px solid var(--ink)}
+.fnote.dash{border-top-style:dashed}
+
+/* ledger (home) */
+.ledger-head,.row{display:grid;grid-template-columns:minmax(230px,1.35fr) minmax(150px,1fr) minmax(170px,1.15fr) minmax(150px,1fr)}
+.row{border-top:1px solid var(--rule)}
+.cell{display:flex;align-items:flex-start;gap:10px;padding:14px 10px 14px 6px;min-height:68px;font-family:var(--f-d);font-size:14.5px;line-height:1.3}
+.nm{display:flex;gap:12px;padding:14px 8px 14px 0;cursor:pointer}
+.nm .bar{flex:0 0 6px;align-self:stretch}
+.nm .t{display:block;font-family:var(--f-d);font-stretch:108%;font-weight:800;font-size:16.5px;line-height:1.18}
+.nm .s{display:block;font-family:var(--f-d);font-size:13.5px;color:var(--mute);margin-top:3px}
+.ch{font-family:var(--f-d);font-size:13.5px;font-weight:700;line-height:1.25;padding:0 10px 8px 6px;border-bottom:3px solid var(--ink);display:flex;align-items:flex-end}
+.grp{margin-top:22px}
+.grp>.gh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:10px 0 4px}
+.fl{padding:4px 0;margin-right:20px;border-bottom:3px solid transparent;cursor:pointer;font-family:var(--f-d);font-size:15px}
+.fl:hover{border-bottom-color:var(--rule)}
+.panel .pn{display:none}
+.sidepanel{border-left:2px solid var(--ink);padding:0 0 0 32px}
+
+/* reading pages */
+.cols{display:grid;grid-template-columns:230px minmax(0,1fr) 270px;gap:44px;align-items:start}
+.toc a{display:block;text-decoration:none;font-family:var(--f-d);font-size:15px;padding:6px 0 6px 12px;border-left:6px solid var(--bar,var(--rule));margin-bottom:6px;line-height:1.25}
+.toc a.on{font-weight:800}
+.toc .g{font-family:var(--f-d);font-weight:800;font-size:15px;border-top:3px solid var(--bar);padding-top:6px;margin:22px 0 8px}
+.margin{border-left:2px solid var(--ink);padding-left:22px}
+.margin h3{font-size:15px;margin:0 0 4px}
+.margin p{font-size:15.5px;line-height:1.5;margin:0 0 16px}
+.metaline{display:flex;flex-wrap:wrap;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-family:var(--f-d);font-size:14.5px;margin:18px 0 28px}
+.metaline span{padding:10px 18px 10px 0;margin-right:18px;border-right:1px solid var(--rule)}
+.metaline span:last-child{border-right:0}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.cards>div{border-top:3px solid var(--cc,var(--usl));padding-top:8px}
+.cards h3{color:var(--ct,var(--ust));margin-bottom:6px;font-size:17px}
+.cards p{font-size:16px;line-height:1.5;margin:0}
+.dashrule{border-top:3px dashed var(--ink);padding-top:14px;display:flex;gap:14px;align-items:flex-start}
+.stack>*+*{margin-top:34px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:34px 44px;border-top:2px solid var(--ink);padding-top:26px;margin-top:48px}
+.cmp>div:first-child{grid-column:1 / -1}
+.cmp .it{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--rule);font-size:16px;line-height:1.5}
+.cmp .it:last-child{border-bottom:1px solid var(--rule)}
+.venn{position:relative;flex:0 0 26px;height:20px;margin-top:5px}
+.venn i{position:absolute;top:0;width:15px;height:15px;border-radius:50%}
+.srcnote{font-family:var(--f-d);font-size:13.5px;color:var(--mute);line-height:1.45}
+.pager{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin:48px 0 0;padding-top:16px;border-top:1px solid var(--rule);font-family:var(--f-d);font-size:15px}
+
+/* generic blocks */
+.rule2{border-top:2px solid var(--ink)}
+.sec{padding:34px 0}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+table.t{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.45}
+table.t th{font-family:var(--f-d);font-size:13.5px;text-align:left;padding:0 12px 8px 0;border-bottom:3px solid var(--ink);vertical-align:bottom}
+table.t td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.scroll{overflow-x:auto}
+.bignum{font-family:var(--f-d);font-stretch:118%;font-weight:800;font-size:clamp(34px,5vw,52px);line-height:1;color:var(--ust)}
+.bignum.e{color:var(--eut)}
+.rail{list-style:none;margin:0;padding:0;border-left:3px solid var(--ink)}
+.rail li{position:relative;padding:0 0 18px 24px}
+.rail li::before{content:"";position:absolute;left:-10px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--dc,var(--inkl));border:3px solid var(--bc,var(--paper))}
+.rail .when{font-family:var(--f-d);font-weight:800;font-size:15px}
+.rail p{margin:2px 0 0;font-size:15.5px;line-height:1.45}
+.step{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.step label{display:block;cursor:pointer;padding:0 14px 0 0;position:relative}
+.step label .ic{display:flex;align-items:center;margin-bottom:14px}
+.step label .ic::after{content:"";flex:1;border-top:4px solid var(--ink);margin-left:10px}
+.step label:last-child .ic::after{margin-right:0}
+.step h3{font-size:19px;font-stretch:112%;margin-bottom:6px}
+.step .tag{font-family:var(--f-d);font-size:14px;font-weight:700;margin-bottom:6px}
+.step p{font-size:15.5px;line-height:1.5;margin:0}
+.det{display:none}
+.chip{display:inline-block;font-family:var(--f-d);font-size:13px;font-weight:700;padding:3px 10px;border:2px solid var(--ink);margin:0 8px 8px 0}
+.rec{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:44px;border-top:3px solid var(--rc);padding-top:22px;margin-top:40px}
+.rec .kick{font-family:var(--f-d);font-weight:700;font-size:15px;color:var(--rt)}
+.rec ol,.rec ul{padding-left:1.2em;margin:0 0 1em}
+.rec li{margin-bottom:.55em}
+.kv{display:grid;grid-template-columns:110px minmax(0,1fr);border-top:1px solid var(--rule);font-size:15.5px;line-height:1.45}
+.kv>div{padding:10px 8px 10px 0;border-bottom:1px solid var(--rule)}
+.kv>div:nth-child(odd){font-family:var(--f-d);font-weight:700;font-size:13.5px;padding-top:12px}
+.obj{border-top:1px solid var(--rule);padding:22px 0}
+.obj:last-child{border-bottom:1px solid var(--rule)}
+.obj h3{font-size:clamp(19px,2.2vw,23px);margin-bottom:10px}
+.obj .a{border-left:4px solid var(--usl);padding-left:18px}
+.obj .o{font-family:var(--f-d);font-size:14.5px;color:var(--mute);margin-top:10px}
+.obj .o b{color:var(--ink)}
+footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-family:var(--f-d);font-size:14px;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+.hide-sm{display:initial}
+
+/* responsive */
+@media (max-width:1060px){
+ .cols{grid-template-columns:200px minmax(0,1fr);gap:32px}
+ .cols>.margin{grid-column:1 / -1;margin-top:8px}
+ .cmp{grid-template-columns:1fr;gap:30px}
+ .three{grid-template-columns:1fr;gap:24px}
+ .home-top{flex-direction:column}
+ .led-grid{flex-direction:column}
+ .sidepanel{border-left:0;border-top:2px solid var(--ink);padding:22px 0 0}
+}
+@media (max-width:860px){
+ .ledger-head{display:none}
+ .row{grid-template-columns:1fr;padding:6px 0 10px}
+ .cell{min-height:0;padding:6px 4px 6px 18px}
+ .cell::before{content:attr(data-l);display:block;flex:0 0 100%;font-size:12.5px;color:var(--mute);margin:0 0 -2px}
+ .cell{flex-wrap:wrap}
+ .cell .glyph{margin-top:2px}
+ .cell .txt{flex:1;min-width:0}
+ .cell .pop{position:static;width:auto;max-width:none;flex:0 0 100%;margin:6px 0 0;box-shadow:none;background:#fff}
+ .step{grid-template-columns:1fr;gap:20px}
+ .step label .ic::after{display:none}
+ .two,.cards{grid-template-columns:1fr;gap:26px}
+ .rec{grid-template-columns:1fr;gap:22px}
+ .cols{grid-template-columns:1fr}
+ .toc{display:none}
+ .metaline span{border-right:0;margin-right:0;padding-right:20px}
+ .nav{margin-left:0}
+}
+@media (max-width:520px){
+ body{font-size:16.5px}
+ .kv{grid-template-columns:1fr}
+ .kv>div:nth-child(odd){border-bottom:0;padding-bottom:0}
+ .fig{grid-template-columns:1fr;gap:22px 0}
+ .cmp{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){.pop{animation:pin .12s ease-out}}
+@keyframes pin{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="band" aria-hidden="true"><i class="a"></i><i class="b"></i></div><header class="wrap mast"><a class="brand" href="index.html"><span class="mark" aria-hidden="true"><i class="a"></i><i class="b"></i></span><span class="t">Clinical Trial Cybersecurity Map</span></a><nav class="nav" aria-label="Main"><a href="problem.html">Policy problem</a><a href="pathway.html">Data pathway</a><a href="index.html">Dashboard</a><a href="recommendations.html" class="on" aria-current="page">Policy recommendations</a><a href="objections.html">Counterarguments</a><a href="statutes.html" class="ref">Regulatory framework</a><a href="about.html">Methodology</a></nav></header>
+<main class="wrap" id="main">
+
+<section style="padding:36px 0 0;max-width:900px">
+<h1 style="margin-bottom:18px">Two policy recommendations, built on existing institutional channels</h1>
+<p class="lead">Each one addresses a policy gap identified on the dashboard. Neither needs new legislation or a new treaty, and both use bodies that already meet, publish and exchange information.</p></section>
+
+<section class="sec" style="padding-bottom:0"><div class="scroll"><table class="t" style="min-width:560px;max-width:900px"><thead><tr><th>Policy gap</th><th>Policy response</th></tr></thead><tbody>
+<tr><td><span class="glyph g-gap" style="--gc:var(--inkl)" aria-hidden="true"></span> Policy gap 1: the sensor</td><td><a class="lk" href="#rec-1">Policy Recommendation 1</a>: a shared baseline that reaches the sensor and its software.</td></tr>
+<tr><td><span class="glyph g-gap" style="--gc:var(--inkl)" aria-hidden="true"></span> Policy gap 2: the systems</td><td><a class="lk" href="#rec-1">Policy Recommendation 1</a>: a named reference for eConsent and eCOA platforms.</td></tr>
+<tr><td><span class="glyph g-gap" style="--gc:var(--inkl)" aria-hidden="true"></span> Policy gap 3: the inspections</td><td><a class="lk" href="#rec-2">Policy Recommendation 2</a>: a shared definition and shared findings.</td></tr></tbody></table></div></section>
+
+<section id="rec-1" class="rec" style="--rc:var(--usl);--rt:var(--ust)">
+<div><div class="kick">Policy Recommendation 1</div><h2 style="margin:4px 0 14px">Extend IMDRF's device cybersecurity guidance to trial technology</h2>
+<p class="lead">Apply the same principles to trial wearables, sensors, apps and remote platforms whether or not they are classified as devices, and name a reference baseline for eConsent and eCOA platforms.</p>
+<h3 style="margin:24px 0 8px">Implementation steps</h3>
+<ol>
+<li><b>Propose the work.</b> FDA and the European Commission, as IMDRF members, put a New Work Item Proposal on the Management Committee's agenda. Any member can submit one.</li>
+<li><b>Widen the scope on purpose.</b> N60 is limited to patient harm and leaves out harm from data-privacy breaches. The new work must add harm to participants' data and to the reliability of trial results.</li>
+<li><b>Draft the baseline.</b> A working group builds on N60, N70 and N73 and adds what trial technology needs: coordinated vulnerability disclosure, a software bill of materials, a patching commitment and notice to the sponsor of a security incident. It points to existing standards such as IEC 81001-5-1 and ISO/IEC 27001 where they fit, and writes new text only for duties specific to trials.</li>
+<li><b>Make it usable.</b> Add a short checklist a sponsor can paste into a vendor agreement, and a participant-facing summary.</li>
+<li><b>Let others point to it.</b> FDA can cite it when it next revises its guidance. Sponsors can cite it in contracts now, and a code of conduct or certification under GDPR Article 32(3) could be built on it.</li></ol></div>
+<div><div class="kv"><div>Lead actors</div><div>FDA and the European Commission, as IMDRF members</div><div>Existing instruments</div><div><a class="lk" href="statutes/imdrf.html">IMDRF N60, N70 and N73</a></div><div>Policy instrument</div><div>Soft law. No new legislation.</div>
+<div>Timeline</div><div>About two to three years. IMDRF's own cybersecurity series took from March 2020 (N60) to 2023 (N70 and N73). A working group is expected to take 18 to 24 months (IMDRF SOP N2, 2025, §6.2.1).</div><div>Gaps addressed</div><div>Policy gaps 1 and 2</div></div></div>
+</section>
+
+<section class="sec" style="padding-top:8px"><h3 style="margin-bottom:10px">Feasibility</h3>
+<div class="two"><div><p>The documents exist, the forum exists, and FDA and EU regulators already take part. The work would add to an existing series. No agency gives up authority, because IMDRF output is voluntary by design.</p>
+<p>The demand side already exists too. FDA's Q&amp;A recommends written agreements with IT providers that cover data security. The Cyber Resilience Act's recital 13 confirms that any entity can set stricter procurement requirements. Sponsors can ask vendors for more but have no shared, trial-specific baseline to ask for.</p>
+<p>IMDRF's cybersecurity work is still active. In September 2025 the Management Committee approved a new work item on cybersecurity controls and testing considerations.</p></div>
+<div><h3 style="margin-bottom:6px;font-size:17px">Implementation risks and mitigations</h3>
+<ul style="padding-left:1.1em;margin:0"><li><b>The mandate is devices.</b> IMDRF is still the practical place to start, because it is the one forum in this set where FDA and EU regulators already write cybersecurity principles together, and N60, N70 and N73 give the new work a base to extend. The work would be framed around technology that collects data on a participant's body or behavior, whatever its device classification. To reach eConsent and eCOA platforms, which are not devices, ask ICH and other bodies to adopt it: E6(R3) §4.3.3 already lists security controls for the computerised systems used in trials, so the finished baseline could serve as the detailed reference for it (my reading).</li>
+<li><b>It is voluntary.</b> The contract and certification routes above can give it force. See <a class="lk" href="objections.html#o1">the first objection</a>.</li>
+<li><b>It costs small vendors and academic sponsors.</b> Write it in tiers. ICH E6(R3) itself says validation should rest on a risk assessment.</li>
+<li><b>It takes years.</b> Sponsors can use N60 and N73 voluntarily in the meantime.</li></ul></div></div></section>
+<section class="sec" style="padding-top:8px"><h3 style="margin-bottom:12px">Stakeholder engagement</h3><div class="scroll"><table class="t" style="min-width:620px"><thead><tr><th style="width:20%">Stakeholder</th><th>What they need</th><th>How to engage</th></tr></thead><tbody><tr><td class="u"><b>FDA (device and drug centers)</b></td><td>Consistency with §524B and with its decentralized-trial guidance. A trial-technology baseline that does not contradict either.</td><td>Ask the staff who own the decentralized-trial guidance to co-sponsor the scope, so the proposal reads as support for guidance FDA already issued.</td></tr><tr><td class="u"><b>European Commission</b></td><td>No new burden on devices already under the MDR, and nothing that cuts across its simplification work.</td><td>Frame the work as voluntary and aimed at technology the MDR does not cover. Point to its own December 2025 proposal, which already calls device cybersecurity reporting a gap.</td></tr><tr><td class="u"><b>Sponsors and CROs</b></td><td>One baseline to ask vendors for, in place of a different questionnaire from each sponsor. (My reasoning, not tested with sponsors.)</td><td>Ask for a public comment period so sponsors can say what they would write into contracts.</td></tr><tr><td class="u"><b>Wearable, eConsent and eCOA vendors</b></td><td>Predictable expectations and a cost that scales with risk.</td><td>Include vendors in the working group. Write tiers so small vendors are not held to the same load as large ones.</td></tr><tr><td class="u"><b>Sites, IRBs and participants</b></td><td>Plain-language disclosure of what protects participant data.</td><td>Include a short participant-facing summary in the output.</td></tr></tbody></table></div><p class="srcnote" style="margin-top:10px">These are proposals for engagement. I have not interviewed these groups.</p></section>
+
+<section id="rec-2" class="rec" style="--rc:var(--eul);--rt:var(--eut)">
+<div><div class="kick">Policy Recommendation 2</div><h2 style="margin:4px 0 14px">Add cybersecurity findings to FDA's GCP inspection collaboration</h2>
+<p class="lead">Regulators already share inspection information under confidentiality arrangements. Add cybersecurity findings about trial technology and cross-border data systems to what they share.</p>
+<h3 style="margin:24px 0 8px">Implementation steps</h3>
+<ol>
+<li><b>Agree what a finding is.</b> Start from the security checks FDA investigators already make under CP 7348.810 (Part III, section N). FDA's drug center and EMA draft a short working definition, tied to ICH E6(R3) §4.3.3 and to FDA's Q&amp;A on security safeguards and IT providers. Examples: uncontrolled access to trial data, unpatched systems, no security terms in a vendor agreement, no incident handling.</li>
+<li><b>Pilot it.</b> Run it for about 18 months on large multinational Phase III trials that use wearables, eCOA or eConsent, as the 2017 to 2018 pilot did when PMDA joined.</li>
+<li><b>Share through what exists.</b> Add the category to the inspection summaries and reports regulators already exchange. Invite PMDA, MHRA and Health Canada as observers first.</li>
+<li><b>Publish recurring patterns.</b> Release them without naming a trial, a sponsor or a vendor, and feed them back to the IMDRF baseline.</li></ol></div>
+<div><div class="kv"><div>Lead actors</div><div>FDA's Center for Drug Evaluation and Research, with EMA</div><div>Partners</div><div>PMDA, MHRA and Health Canada</div><div>Start with</div><div>Large multinational Phase III trials</div>
+<div>Timeline</div><div>About two years from request to a decision to continue, if it follows the PMDA precedent: request September 2016, observer April 2017, 18-month pilot from June 2017, agreement to continue.</div><div>Why feasible</div><div>It shares findings. No agency gives up authority.</div><div>Gap addressed</div><div>Policy gap 3</div></div></div>
+</section>
+
+<section class="sec" style="padding-top:8px"><h3 style="margin-bottom:10px">Feasibility</h3>
+<div class="two"><div><p>The channel is proven. The EMA and FDA began sharing GCP inspection information in 2009 with an 18-month pilot, and after exchanging more than 250 documents on 54 products agreed to continue. The 2017 to 2018 PMDA pilot discussed 59 marketing applications, analyzed 20 of them covering 209 GCP inspections, and ended with all three agencies agreeing to continue. FDA shared 103 documents in it, including 73 inspection summaries.</p>
+<p>The pilot also gave the reason to share: the globalization of large trials, “coupled with limited inspection resources,” limits how many trials can be inspected. Sharing findings makes that limited inspection capacity go further.</p>
+<p>FDA already records the raw material. Its sponsor and CRO inspection program asks investigators about security controls, patches and unauthorized access.</p></div>
+<div><h3 style="margin-bottom:6px;font-size:17px">Implementation risks and mitigations</h3>
+<ul style="padding-left:1.1em;margin:0"><li><b>Sovereignty and confidentiality.</b> The category is added to information already covered by existing arrangements. No agency's powers change.</li>
+<li><b>Inspector time.</b> Add a question to inspections that already happen. Do not create a new inspection program.</li>
+<li><b>No agreed definition.</b> The pilot would test a working definition.</li>
+<li><b>Few parallel applications.</b> In the PMDA pilot only 5 of the 24 applications that reached all three agencies arrived within 60 days of one another, against 22 of 35 for EMA and FDA alone. Start with EMA and FDA and add partners.</li>
+<li><b>Findings can expose vulnerabilities.</b> Set handling rules and publish only aggregates.</li></ul></div></div></section>
+<section class="sec" style="padding-top:8px"><h3 style="margin-bottom:12px">Stakeholder engagement</h3><div class="scroll"><table class="t" style="min-width:620px"><thead><tr><th style="width:20%">Stakeholder</th><th>What they need</th><th>How to engage</th></tr></thead><tbody><tr><td class="u"><b>FDA drug center inspectors</b></td><td>A clear definition and a short list of what to record, so a question added to an inspection is not a new inspection.</td><td>Start with the people who already exchange inspection information with EMA.</td></tr><tr><td class="u"><b>EMA and EU GCP inspectors</b></td><td>The same definition, and confidence that shared findings stay protected.</td><td>Use the existing EU GCP inspector working group. Hold joint sessions with FDA.</td></tr><tr><td class="u"><b>PMDA, MHRA, Health Canada</b></td><td>A reason to join: findings from other inspections that they would not see otherwise.</td><td>Invite them into the pilot as observers first, as PMDA was first invited.</td></tr><tr><td class="u"><b>Sponsors, CROs and vendors</b></td><td>Assurance that vendor weaknesses are not published. Findings can expose systems.</td><td>State at the outset that findings stay between regulators under existing arrangements and that only aggregate patterns are published.</td></tr><tr><td class="u"><b>Legal and confidentiality offices</b></td><td>Proof that nothing in the confidentiality arrangements has to change.</td><td>Show that the category is added to information already covered.</td></tr></tbody></table></div><p class="srcnote" style="margin-top:10px">These are proposals for engagement.</p></section>
+
+<section class="sec rule2" style="margin-top:30px"><h2 style="margin-bottom:14px">How the two policy recommendations work together</h2>
+<div class="two"><div><p>Recommendation 1 builds the vocabulary and a baseline for what a secure trial wearable or platform looks like. Recommendation 2 produces evidence about what regulators find when they inspect. Findings show whether the baseline is working and where it needs to change, and the baseline gives inspectors something to point to.</p></div>
+<div><p>Both reach sponsors where they act, in the contracts they write with vendors. Recommendation 1 gives them a baseline to write in, and Recommendation 2 publishes the patterns that show what to ask for. Neither depends on how the EU settles the Cyber Resilience Act question. If the EU clarifies that the Act reaches trial tools, Recommendation 1 would give a shared reading of what compliance looks like.</p></div></div>
+<h3 style="margin:22px 0 8px">Policy options not recommended</h3>
+<ul style="padding-left:1.1em;margin:0"><li>New legislation in either jurisdiction, or a new treaty.</li><li>Mandatory certification for all trial technology.</li><li>A change to the confidentiality arrangements between regulators.</li></ul>
+<p style="margin-top:20px">Read the strongest arguments against both: <a class="lk" href="objections.html">Counterarguments and responses</a>.</p></section>
+
+</main>
+<footer class="wrap"><span>Clinical Trial Cybersecurity Map. Capstone project, Cybersecurity and Health Data Policy, Duke Sanford.</span><span>A policy reference, not legal advice. <a class="lk" href="about.html">Sources and methodology</a></span></footer>
+</body>
+</html>

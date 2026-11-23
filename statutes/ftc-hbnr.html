@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FTC Health Breach Notification Rule | Clinical Trial Cybersecurity Map</title>
+<meta name="description" content="Health apps and similar technologies that HIPAA does not cover must notify users, the FTC and sometimes the media within 60 days of a breach of identifiable health information. The FTC amended the rul">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Literata:opsz,wght@7..72,300..800&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: a policy reference. Wide ledger on the home page, one-column reading pages elsewhere. */
+:root{--us:#B7CBF7;--eu:#F9C2DA;--usl:#7F9DE0;--eul:#EE90BA;--ust:#2E4E9E;--eut:#B02F6B;
+ --ink:#27265E;--inkl:#8C89C6;--inkt:#27265E;--sun:#FFE79A;--mute:#5D5C82;--rule:rgba(39,38,94,.18);--paper:#F6F7FB;--white:#fff;
+ --f-d:'Archivo','Helvetica Neue',Arial,sans-serif;--f-b:'Literata',Georgia,'Times New Roman',serif;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-b);font-size:17px;line-height:1.6;
+ padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.d{font-family:var(--f-d);font-stretch:114%;font-weight:800;letter-spacing:-.012em;line-height:1.1;text-wrap:balance}
+.u{font-family:var(--f-d);font-stretch:100%}
+h1,h2,h3{margin:0}
+h1{font-family:var(--f-d);font-stretch:112%;font-weight:800;letter-spacing:-.012em;line-height:1.08;font-size:clamp(30px,4.6vw,46px);text-wrap:balance}
+h2{font-family:var(--f-d);font-stretch:112%;font-weight:800;letter-spacing:-.01em;line-height:1.15;font-size:clamp(22px,2.6vw,28px);text-wrap:balance}
+h3{font-family:var(--f-d);font-stretch:108%;font-weight:700;line-height:1.2;font-size:18px}
+p{margin:0 0 1em}
+.lead{font-size:clamp(18px,2vw,21px);line-height:1.6}
+.mute{color:var(--mute)}
+.small{font-size:14px}
+.lk{color:var(--ink);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px;font-weight:600}
+.lk:hover{background:var(--sun)}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible,label:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.vh{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px}
+
+/* masthead */
+.band{position:relative;height:8px;margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px)))}
+.band i{position:absolute;top:0;height:8px;width:56%}
+.band .a{left:0;background:var(--us)}.band .b{right:0;background:var(--eu);mix-blend-mode:multiply}
+.mast{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;padding:18px 0 14px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.mark{position:relative;display:inline-block;width:40px;height:26px;flex:0 0 40px}
+.mark i{position:absolute;top:0;width:26px;height:26px;border-radius:50%;mix-blend-mode:multiply}
+.mark .a{left:0;background:var(--us)}.mark .b{left:14px;background:var(--eu)}
+.brand span.t{font-family:var(--f-d);font-stretch:114%;font-weight:800;font-size:19px;line-height:1.15}
+.nav{margin-left:auto;display:flex;flex-wrap:wrap;gap:4px 22px;font-family:var(--f-d)}
+.nav a{text-decoration:none;font-size:15px;padding:6px 0;border-bottom:3px solid transparent}
+.nav a:hover{border-bottom-color:var(--rule)}
+.nav a.on{border-bottom-color:var(--ink);font-weight:700}
+.nav a.ref{margin-left:10px;padding-left:22px;border-left:1px solid var(--rule)}
+@media (max-width:860px){.nav a.ref{margin-left:0;padding-left:0;border-left:0}}
+
+/* tooltip pop */
+.tip{position:relative}
+.pop{display:none;position:absolute;z-index:40;width:310px;max-width:min(310px,84vw);background:#fff;color:var(--ink);padding:13px 16px;border-left:5px solid var(--c,var(--ink));
+ box-shadow:6px 6px 0 rgba(39,38,94,.14);font-family:var(--f-b);font-size:14.5px;line-height:1.45;font-weight:400;font-stretch:100%;letter-spacing:0;text-align:left;white-space:normal}
+.pop b{display:block;font-family:var(--f-d);font-stretch:108%;font-weight:700;font-size:14.5px;margin-bottom:3px}
+.pop i{display:block;font-style:normal;font-family:var(--f-d);font-size:12.5px;color:var(--mute);margin-top:7px}
+.dn{top:calc(100% + 6px);left:0}.up{bottom:calc(100% + 6px);left:0}.rt{right:0;left:auto}
+.tip:hover>.pop,.tip:focus>.pop,.tip:focus-within>.pop{display:block}
+.term{border-bottom:2px dotted var(--ink);cursor:help}
+
+/* glyphs */
+.glyph{display:inline-block;width:18px;height:18px;border-radius:50%;flex:0 0 18px;vertical-align:middle}
+.g-cov{background:var(--gc,var(--ink))}
+.g-par{border:2px solid var(--gc,var(--ink));background:repeating-linear-gradient(135deg,var(--sun) 0 3px,rgba(255,231,154,.35) 3px 6px)}
+.g-gap{border:2px dashed var(--gc,var(--ink));background:transparent}
+.g-out{width:12px;height:2px;border-radius:0;background:var(--mute);flex:0 0 12px;margin:0 3px}
+.hatch{background:repeating-linear-gradient(135deg,rgba(255,226,130,.95) 0 4px,rgba(255,231,154,.3) 4px 8px)}
+.openitem{border:2px dashed var(--ink);padding:10px 14px;font-family:var(--f-d);font-size:14px;line-height:1.45;background:repeating-linear-gradient(135deg,rgba(255,231,154,.9) 0 6px,rgba(255,231,154,.4) 6px 12px)}
+.openitem b{font-weight:700}
+.callout{border-left:5px solid var(--inkl);padding:4px 0 4px 18px;font-family:var(--f-d);font-size:15px;line-height:1.5}
+.callout b{font-weight:700}
+
+/* hero figure */
+.fig{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;font-family:var(--f-d)}
+.fig>div>.fz{margin:0}
+.fig .h{font-size:15px;font-weight:700;line-height:1.25;padding-bottom:10px}
+.fz{position:relative;padding:12px 14px;min-height:78px;color:var(--ink)}
+.fz .d{font-size:17px;font-stretch:110%}
+.fz .s{font-size:13px;line-height:1.35;margin-top:3px}
+.z-us{background:var(--us)}.z-ov{background:#A99CD3}.z-eu{background:var(--eu)}
+.z-nus{border:2.5px dashed var(--usl);color:var(--ust)}
+.z-neu{border:2.5px dashed var(--eul);border-top:0;color:var(--ink)}
+.z-neu .d{color:var(--eut)}
+.fnote{font-size:14px;padding-top:8px;border-top:3px solid var(--ink)}
+.fnote.dash{border-top-style:dashed}
+
+/* ledger (home) */
+.ledger-head,.row{display:grid;grid-template-columns:minmax(230px,1.35fr) minmax(150px,1fr) minmax(170px,1.15fr) minmax(150px,1fr)}
+.row{border-top:1px solid var(--rule)}
+.cell{display:flex;align-items:flex-start;gap:10px;padding:14px 10px 14px 6px;min-height:68px;font-family:var(--f-d);font-size:14.5px;line-height:1.3}
+.nm{display:flex;gap:12px;padding:14px 8px 14px 0;cursor:pointer}
+.nm .bar{flex:0 0 6px;align-self:stretch}
+.nm .t{display:block;font-family:var(--f-d);font-stretch:108%;font-weight:800;font-size:16.5px;line-height:1.18}
+.nm .s{display:block;font-family:var(--f-d);font-size:13.5px;color:var(--mute);margin-top:3px}
+.ch{font-family:var(--f-d);font-size:13.5px;font-weight:700;line-height:1.25;padding:0 10px 8px 6px;border-bottom:3px solid var(--ink);display:flex;align-items:flex-end}
+.grp{margin-top:22px}
+.grp>.gh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:10px 0 4px}
+.fl{padding:4px 0;margin-right:20px;border-bottom:3px solid transparent;cursor:pointer;font-family:var(--f-d);font-size:15px}
+.fl:hover{border-bottom-color:var(--rule)}
+.panel .pn{display:none}
+.sidepanel{border-left:2px solid var(--ink);padding:0 0 0 32px}
+
+/* reading pages */
+.cols{display:grid;grid-template-columns:230px minmax(0,1fr) 270px;gap:44px;align-items:start}
+.toc a{display:block;text-decoration:none;font-family:var(--f-d);font-size:15px;padding:6px 0 6px 12px;border-left:6px solid var(--bar,var(--rule));margin-bottom:6px;line-height:1.25}
+.toc a.on{font-weight:800}
+.toc .g{font-family:var(--f-d);font-weight:800;font-size:15px;border-top:3px solid var(--bar);padding-top:6px;margin:22px 0 8px}
+.margin{border-left:2px solid var(--ink);padding-left:22px}
+.margin h3{font-size:15px;margin:0 0 4px}
+.margin p{font-size:15.5px;line-height:1.5;margin:0 0 16px}
+.metaline{display:flex;flex-wrap:wrap;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-family:var(--f-d);font-size:14.5px;margin:18px 0 28px}
+.metaline span{padding:10px 18px 10px 0;margin-right:18px;border-right:1px solid var(--rule)}
+.metaline span:last-child{border-right:0}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.cards>div{border-top:3px solid var(--cc,var(--usl));padding-top:8px}
+.cards h3{color:var(--ct,var(--ust));margin-bottom:6px;font-size:17px}
+.cards p{font-size:16px;line-height:1.5;margin:0}
+.dashrule{border-top:3px dashed var(--ink);padding-top:14px;display:flex;gap:14px;align-items:flex-start}
+.stack>*+*{margin-top:34px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:34px 44px;border-top:2px solid var(--ink);padding-top:26px;margin-top:48px}
+.cmp>div:first-child{grid-column:1 / -1}
+.cmp .it{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--rule);font-size:16px;line-height:1.5}
+.cmp .it:last-child{border-bottom:1px solid var(--rule)}
+.venn{position:relative;flex:0 0 26px;height:20px;margin-top:5px}
+.venn i{position:absolute;top:0;width:15px;height:15px;border-radius:50%}
+.srcnote{font-family:var(--f-d);font-size:13.5px;color:var(--mute);line-height:1.45}
+.pager{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;margin:48px 0 0;padding-top:16px;border-top:1px solid var(--rule);font-family:var(--f-d);font-size:15px}
+
+/* generic blocks */
+.rule2{border-top:2px solid var(--ink)}
+.sec{padding:34px 0}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px}
+table.t{border-collapse:collapse;width:100%;font-size:15.5px;line-height:1.45}
+table.t th{font-family:var(--f-d);font-size:13.5px;text-align:left;padding:0 12px 8px 0;border-bottom:3px solid var(--ink);vertical-align:bottom}
+table.t td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.scroll{overflow-x:auto}
+.bignum{font-family:var(--f-d);font-stretch:118%;font-weight:800;font-size:clamp(34px,5vw,52px);line-height:1;color:var(--ust)}
+.bignum.e{color:var(--eut)}
+.rail{list-style:none;margin:0;padding:0;border-left:3px solid var(--ink)}
+.rail li{position:relative;padding:0 0 18px 24px}
+.rail li::before{content:"";position:absolute;left:-10px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--dc,var(--inkl));border:3px solid var(--bc,var(--paper))}
+.rail .when{font-family:var(--f-d);font-weight:800;font-size:15px}
+.rail p{margin:2px 0 0;font-size:15.5px;line-height:1.45}
+.step{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.step label{display:block;cursor:pointer;padding:0 14px 0 0;position:relative}
+.step label .ic{display:flex;align-items:center;margin-bottom:14px}
+.step label .ic::after{content:"";flex:1;border-top:4px solid var(--ink);margin-left:10px}
+.step label:last-child .ic::after{margin-right:0}
+.step h3{font-size:19px;font-stretch:112%;margin-bottom:6px}
+.step .tag{font-family:var(--f-d);font-size:14px;font-weight:700;margin-bottom:6px}
+.step p{font-size:15.5px;line-height:1.5;margin:0}
+.det{display:none}
+.chip{display:inline-block;font-family:var(--f-d);font-size:13px;font-weight:700;padding:3px 10px;border:2px solid var(--ink);margin:0 8px 8px 0}
+.rec{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:44px;border-top:3px solid var(--rc);padding-top:22px;margin-top:40px}
+.rec .kick{font-family:var(--f-d);font-weight:700;font-size:15px;color:var(--rt)}
+.rec ol,.rec ul{padding-left:1.2em;margin:0 0 1em}
+.rec li{margin-bottom:.55em}
+.kv{display:grid;grid-template-columns:110px minmax(0,1fr);border-top:1px solid var(--rule);font-size:15.5px;line-height:1.45}
+.kv>div{padding:10px 8px 10px 0;border-bottom:1px solid var(--rule)}
+.kv>div:nth-child(odd){font-family:var(--f-d);font-weight:700;font-size:13.5px;padding-top:12px}
+.obj{border-top:1px solid var(--rule);padding:22px 0}
+.obj:last-child{border-bottom:1px solid var(--rule)}
+.obj h3{font-size:clamp(19px,2.2vw,23px);margin-bottom:10px}
+.obj .a{border-left:4px solid var(--usl);padding-left:18px}
+.obj .o{font-family:var(--f-d);font-size:14.5px;color:var(--mute);margin-top:10px}
+.obj .o b{color:var(--ink)}
+footer{margin:64px 0 40px;border-top:2px solid var(--ink);padding-top:18px;font-family:var(--f-d);font-size:14px;color:var(--mute);display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+.hide-sm{display:initial}
+
+/* responsive */
+@media (max-width:1060px){
+ .cols{grid-template-columns:200px minmax(0,1fr);gap:32px}
+ .cols>.margin{grid-column:1 / -1;margin-top:8px}
+ .cmp{grid-template-columns:1fr;gap:30px}
+ .three{grid-template-columns:1fr;gap:24px}
+ .home-top{flex-direction:column}
+ .led-grid{flex-direction:column}
+ .sidepanel{border-left:0;border-top:2px solid var(--ink);padding:22px 0 0}
+}
+@media (max-width:860px){
+ .ledger-head{display:none}
+ .row{grid-template-columns:1fr;padding:6px 0 10px}
+ .cell{min-height:0;padding:6px 4px 6px 18px}
+ .cell::before{content:attr(data-l);display:block;flex:0 0 100%;font-size:12.5px;color:var(--mute);margin:0 0 -2px}
+ .cell{flex-wrap:wrap}
+ .cell .glyph{margin-top:2px}
+ .cell .txt{flex:1;min-width:0}
+ .cell .pop{position:static;width:auto;max-width:none;flex:0 0 100%;margin:6px 0 0;box-shadow:none;background:#fff}
+ .step{grid-template-columns:1fr;gap:20px}
+ .step label .ic::after{display:none}
+ .two,.cards{grid-template-columns:1fr;gap:26px}
+ .rec{grid-template-columns:1fr;gap:22px}
+ .cols{grid-template-columns:1fr}
+ .toc{display:none}
+ .metaline span{border-right:0;margin-right:0;padding-right:20px}
+ .nav{margin-left:0}
+}
+@media (max-width:520px){
+ body{font-size:16.5px}
+ .kv{grid-template-columns:1fr}
+ .kv>div:nth-child(odd){border-bottom:0;padding-bottom:0}
+ .fig{grid-template-columns:1fr;gap:22px 0}
+ .cmp{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){.pop{animation:pin .12s ease-out}}
+@keyframes pin{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="band" aria-hidden="true"><i class="a"></i><i class="b"></i></div><header class="wrap mast"><a class="brand" href="../index.html"><span class="mark" aria-hidden="true"><i class="a"></i><i class="b"></i></span><span class="t">Clinical Trial Cybersecurity Map</span></a><nav class="nav" aria-label="Main"><a href="../problem.html">Policy problem</a><a href="../pathway.html">Data pathway</a><a href="../index.html">Dashboard</a><a href="../recommendations.html">Policy recommendations</a><a href="../objections.html">Counterarguments</a><a href="../statutes.html" class="on ref" aria-current="page">Regulatory framework</a><a href="../about.html">Methodology</a></nav></header>
+<main class="wrap" id="main">
+
+<div class="cols" style="padding-top:34px">
+<nav class="toc" aria-label="Regulatory framework"><div class="u mute small" style="margin-bottom:6px"><a href="../statutes.html" style="display:inline;border:0;padding:0;font-size:14px">Regulatory framework</a></div><div class="g" style="--bar:var(--usl);color:var(--ust)">United States</div><a href="524b.html" style="--bar:var(--usl)" class="">FD&amp;C Act §524B</a><a href="fda-guidance.html" style="--bar:var(--usl)" class="">FDA guidance on DCT technology</a><a href="part-11.html" style="--bar:var(--usl)" class="">21 CFR Part 11</a><a href="hipaa.html" style="--bar:var(--usl)" class="">HIPAA Security Rule</a><a href="ftc-hbnr.html" style="--bar:var(--usl)" class="on" aria-current="page">FTC Health Breach Notification Rule</a><div class="g" style="--bar:var(--eul);color:var(--eut)">European Union</div><a href="mdr.html" style="--bar:var(--eul)" class="">MDR Annex I</a><a href="cra.html" style="--bar:var(--eul)" class="">Cyber Resilience Act</a><a href="gdpr.html" style="--bar:var(--eul)" class="">GDPR (Arts. 32–33, Ch. V)</a><a href="ehds.html" style="--bar:var(--eul)" class="">European Health Data Space</a><div class="g" style="--bar:var(--inkl);color:var(--inkt)">International</div><a href="imdrf.html" style="--bar:var(--inkl)" class="">IMDRF N60, N70, N73</a><a href="ich-e6r3.html" style="--bar:var(--inkl)" class="">ICH E6(R3)</a></nav>
+<article class="stack">
+<div><div class="u mute small" style="margin-bottom:10px"><a href="../index.html">Dashboard</a>, then <a href="../statutes.html">regulatory framework</a>, then United States</div>
+<h1 style="color:var(--ust)">FTC Health Breach Notification Rule: breach notice for health apps outside HIPAA</h1>
+<div class="metaline"><span>Binding rule</span><span>Amended 2024, effective July 29, 2024</span><span>Notice only, no security requirements</span></div></div>
+<section><h2 style="margin-bottom:10px">In plain language</h2><p class="lead" style="margin:0">Health apps and similar technologies that HIPAA does not cover must notify users, the FTC and sometimes the media within 60 days of a breach of identifiable health information. The FTC amended the rule in 2024 to make clear that it covers health apps.</p></section>
+<section><h2 style="margin-bottom:16px">What it requires</h2><div class="cards" style="--cc:var(--usl);--ct:var(--ust)"><div><h3>Who is covered</h3><p>Section 318.1(a) applies the rule to “foreign and domestic vendors of personal health records, PHR related entities, and third party service providers … that maintain information of U.S. citizens or residents.” It does not apply to HIPAA-covered entities.</p></div><div><h3>What counts as a breach</h3><p>A personal health record is “an electronic record of PHR identifiable health information on an individual that has the technical capacity to draw information from multiple sources and that is managed, shared, and controlled by or primarily for the individual.” A breach of security is acquisition of unsecured PHR identifiable health information “without the authorization of the individual.” Unauthorized access is presumed to be acquisition (§318.2).</p></div><div><h3>Notice</h3><p>The vendor must notify each affected individual and the FTC, and the media where 500 or more residents of a state or jurisdiction are affected. Notices go out “without unreasonable delay and in no case later than 60 calendar days after the discovery of a breach of security” (§§318.3 and 318.4).</p></div></div><div style="margin-top:20px;border-left:5px solid var(--inkl);padding:4px 0 4px 18px"><div class="u" style="font-weight:700;font-size:14px;margin-bottom:2px">Reading</div><p style="margin:0;font-size:16.5px">My reading: The deciding question for a trial is the definition of a personal health record, which must be “managed, shared, and controlled by or primarily for the individual.” A participant's own consumer app may fit. A tool a sponsor supplies to collect trial data may not.</p></div></section>
+<section><h2 style="margin-bottom:12px">What it does not cover</h2><div class="dashrule"><span class="glyph g-gap" style="--gc:var(--inkl)" aria-hidden="true"></span><p style="margin:0;font-size:17px">The rule requires notice after a breach. No section requires security safeguards, and it says nothing about finding or patching flaws. Section 5 of the FTC Act reaches unfair or deceptive practices, and the FTC has used it in health cases such as GoodRx and BetterHelp (2023), both about sharing health data with advertisers. Section 5 names no security standard and is enforced case by case.</p></div></section>
+<section class="cmp" style="margin-top:14px">
+<div><h2 style="font-size:22px;margin-bottom:12px">Transatlantic comparison</h2><div class="it"><span class="venn"><i style="left:0;background:var(--usl);mix-blend-mode:multiply"></i><i style="left:8px;background:var(--eul);mix-blend-mode:multiply"></i></span><div><b class="u">HIPAA aligns.</b> Breach notice on the non-HIPAA side.</div></div><div class="it"><span class="venn"><i style="left:0;top:0;width:13px;height:13px;background:var(--usl)"></i><i style="left:9px;top:8px;width:13px;height:13px;background:var(--eul)"></i></span><div><b class="u">GDPR diverges.</b> Articles 32 and 33 require both security and breach notice; the FTC rule requires notice only.</div></div></div>
+<div><h2 style="font-size:22px;margin-bottom:12px">Where this shows up</h2><p style="font-size:16px">Pathway Step 1: the wrist sensor.</p><a class="lk u" href="../pathway.html#step-1">Follow the pathway</a></div>
+<div><h2 style="font-size:22px;margin-bottom:12px">Source</h2><div style="font-size:15.5px;line-height:1.5"><p style='margin:0 0 8px'>16 CFR Part 318 (eCFR), §§318.1–318.7; FTC, Health Breach Notification Rule, final rule, Federal Register, May 30, 2024 (FR Doc. 2024-10855).</p></div></div>
+</section>
+<div class="pager"><a class="lk" href="hipaa.html">Previous: HIPAA Security Rule</a><a class="lk" href="mdr.html">Next: MDR Annex I</a></div>
+</article>
+<aside class="margin" aria-label="Margin notes"><div class="u" style="font-weight:700;font-size:14px;margin-bottom:12px">Margin notes</div><h3>Notice only</h3><p>The rule applies after a breach. It sets no safeguards.</p><h3>Who decides</h3><p>Whether a trial tool is a personal health record turns on who it is managed for.</p></aside>
+</div>
+</main>
+<footer class="wrap"><span>Clinical Trial Cybersecurity Map. Capstone project, Cybersecurity and Health Data Policy, Duke Sanford.</span><span>A policy reference, not legal advice. <a class="lk" href="../about.html">Sources and methodology</a></span></footer>
+</body>
+</html>
